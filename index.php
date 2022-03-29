@@ -9,6 +9,8 @@
 <body>
 <?php
 
+use function PHPSTORM_META\type;
+
 define("rootDir","/home/user/Documents/sharef"); // this is the main directory path that have shared
 
 function grabFileAndDirectories($nextDir){
@@ -24,10 +26,11 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     echo '<h3>All Directories and Files:</h3>'; // Print Heading 
     echo '<pre>';
     $fileCountIndex= 0;
-    foreach ($listOfFilesAndDirectories as$eachFile){
+    foreach ($listOfFilesAndDirectories as $eachFile){
         $fileCountIndex += 1;
-        echo "$fileCountIndex. ";    
-        echo($eachFile);
+        echo "$fileCountIndex. "; 
+        echo (is_dir($eachFile));   
+        echo ($eachFile);
         echo '<br>';
     }
     echo '</pre>';
