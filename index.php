@@ -37,8 +37,14 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     foreach ($listOfFilesAndDirectories as $eachFile){
         if (is_dir(rootDir.'/'.$eachFile)){
             $fileCountIndex += 1;
+            ?> 
+
+            <?php
             echo "$fileCountIndex. "; 
             echo ($eachFile);
+            ?> 
+
+            <?php
             echo '<br>';
         } 
         else{
