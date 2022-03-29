@@ -19,7 +19,9 @@ function grabFileAndDirectories($nextDir){
     $files = array_diff($files,array('.','..')); // removing extra dots
     return array_values($files); // returning a array of all directories and files
 } // end of grabFileAndDirectories()
+?> 
 
+<?php
 
 function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
@@ -29,6 +31,9 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     $fileCountIndex= 0; // count index  for folders and files 
 
     echo "<b>Directories: </b><br>";
+    ?> 
+
+    <?php
     foreach ($listOfFilesAndDirectories as $eachFile){
         if (is_dir(rootDir.'/'.$eachFile)){
             $fileCountIndex += 1;
@@ -42,6 +47,10 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     }
 
     echo "<br><b>Files: </b><br>";
+
+    ?> 
+
+    <?php
     foreach ($onlyFiles as $eachFile){
         $fileCountIndex += 1;
         echo "$fileCountIndex. "; 
@@ -49,7 +58,10 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
         echo '<br>';
     }
 } // end of printListOfDirectoriesAndFiles()
+    ?> 
 
+
+<?php
 // Main Function:
 $files= grabFileAndDirectories('');
 printListOfDirectoriesAndFiles($files)
