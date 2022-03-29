@@ -12,7 +12,7 @@
 <?php
 include "smb.php";
 
-$RootShareDir= '/home/user/Documents/sharef';
+$localDir= '/home/user/Documents/sharef';
 $files= scandir($localDir);
 $files= array_diff($files,array('.','..'));
 $files= array_values($files);
