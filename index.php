@@ -22,6 +22,12 @@ function grabFileAndDirectories($nextDir){
 ?> 
 
 <?php
+function changeNextDirectory($fileName){
+    echo $fileName; 
+}
+?> 
+
+<?php
 
 function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
@@ -34,11 +40,12 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     ?> 
 
     <?php
+
     foreach ($listOfFilesAndDirectories as $eachFile){
         if (is_dir(rootDir.'/'.$eachFile)){
             $fileCountIndex += 1;
             ?> 
-
+            <button onclick="changeDir('<?php echo $eachFile; ?>')"> Go </button>
             <?php
             echo "$fileCountIndex. "; 
             echo ($eachFile);
@@ -73,7 +80,12 @@ $files= grabFileAndDirectories('');
 printListOfDirectoriesAndFiles($files)
 ?> 
 
-
+<script>
+    function changeDir(fileName) {
+        console.log(fileName);
+    }
+    
+</script>
 
 </body>
 </html>
