@@ -9,7 +9,7 @@
 <body>
 <?php
 
-use function PHPSTORM_META\type;
+
 
 define("rootDir","/home/user/Documents/sharef"); // this is the main directory path that have shared
 
@@ -17,25 +17,38 @@ function grabFileAndDirectories($nextDir){
 
     $files = scandir(rootDir.$nextDir); // grabing all files in the directory
     $files = array_diff($files,array('.','..')); // removing extra dots
-    return array_values($files);
-}
+    return array_values($files); // returning a array of all directories and files
+} // end of grabFileAndDirectories()
 
 
 function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
+    $onlyFiles= array(); // array to keep all files only, no directory.
+
     echo '<h3>All Directories and Files:</h3>'; // Print Heading 
-    echo '<pre>';
-    $fileCountIndex= 0;
+    $fileCountIndex= 0; // count index  for folders and files 
+
+    echo "<b>Directories: </b><br>";
     foreach ($listOfFilesAndDirectories as $eachFile){
+        if (is_dir(rootDir.'/'.$eachFile)){
+            $fileCountIndex += 1;
+            echo "$fileCountIndex. "; 
+            echo ($eachFile);
+            echo '<br>';
+        } 
+        else{
+            array_push($onlyFiles, $eachFile);
+        }
+    }
+
+    echo "<br><b>Files: </b><br>";
+    foreach ($onlyFiles as $eachFile){
         $fileCountIndex += 1;
         echo "$fileCountIndex. "; 
-        echo (is_dir($eachFile));   
         echo ($eachFile);
         echo '<br>';
     }
-    echo '</pre>';
-} 
-
+} // end of printListOfDirectoriesAndFiles()
 
 // Main Function:
 $files= grabFileAndDirectories('');
