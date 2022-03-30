@@ -22,10 +22,11 @@ function grabFileAndDirectories($nextDir){
 ?> 
 
 <?php
-function changeNextDirectory($fileName){
-    echo $fileName; 
+function changeNextDirectory(){
+
 }
 ?> 
+
 
 <?php
 
@@ -81,11 +82,14 @@ printListOfDirectoriesAndFiles($files)
 ?> 
 
 <script>
-    function changeDir(fileName) {
+    function changeDir(fileName) {        
         console.log(fileName);
+        
     }
     
 </script>
+
+
 
 </body>
 </html>
