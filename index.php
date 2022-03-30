@@ -127,22 +127,32 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
 <?php   // after make directory submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    global $nextDir;
+    global $nextDir, $currentPath;
     
     
   // collect value of input field
-  $DirectoryName = $_POST['folderName'];
-  
+  $directoryName = $_POST['folderName'];
+  $fileName=$_POST['fileName'];
+  $fileExtension=$_POST['fileExtension'];
   $nextDir=$_POST['path']; // grabbing path after root
   $currentPath = rootDir.$nextDir;
 
-  
-  if (is_dir($currentPath.'/'.$DirectoryName)){
-      echo 'Directory already exist';
-  }else{
-    mkdir($currentPath.'/'.$DirectoryName);
+  if ($directoryName != ''){ // if directory name field is not empty
+    if (is_dir($currentPath.'/'.$directoryName)){
+        echo 'Directory already exist';
+        }else{
+        mkdir($currentPath.'/'.$directoryName);
+    }
   }
+  if (($fileName != '') && ($fileExtension!='') ){ // if file name and extention fields are not empty
 
+    if (file_exists($currentPath.'/'.$fileName.'.'.$fileExtension)){ // scecking the file alreadddy exists or not
+        echo 'file already exist';
+        }else{
+            $file_handle = fopen($currentPath.'/'.$fileName.'.'.$fileExtension, 'w'); // creating file, and a file handler
+            fclose($file_handle); // closing the file handler
+    }
+  }
 }
 ?>
 
@@ -150,9 +160,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- //html start -->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-  Make a directory in current path:<br> <input type="text" name="folderName" placeholder="Directory Name">
+  Make a directory/file in current path:<br> <input type="text" name="folderName" placeholder="Directory Name"><br>  
+  <input type="text" name="fileName" placeholder="File Name">.<input type="text" name="fileExtension" placeholder="Extension">
   <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
-  <input type="submit"><br> <!-- make directory name submission -->
+ <br> <input type="submit"><br> <!-- make directory name submission -->
 </form>
 <br>
 
