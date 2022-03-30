@@ -22,13 +22,6 @@ if (isset($_GET ['go'])){ // if the user clicks on
     $currentPath = rootDir.$nextDir;
 }
 
-if (isset($_GET ['deletePath'])){ // if the user clicks on 
-    global $nextDir;
-    $nextDir = $_GET['deletePath']; // for keeping the current directory
-    $currentPath = rootDir.$nextDir; // the directory path, wwher the folder going to be deleted
-    echo $nextDir;
-}
-
 
 function grabFileAndDirectories($path){
 
@@ -59,17 +52,13 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     ?> 
 
     <?php
-
     foreach ($listOfFilesAndDirectories as $eachFile){
 
-        if (is_dir($currentPath.'/'.$eachFile)){
+        if (is_dir(rootDir.'/'.$nextDir.'/'.$eachFile)){
             $fileCountIndex += 1;
             ?> 
             
             <a href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " > <?php echo "$fileCountIndex. "; echo $eachFile; ?> </a>
-           
-            <a href="index.php?deletePath=<?php echo $nextDir; ?>  " > <button>Delete</button></a>
-            
             
             <?php
             echo '<br>';
@@ -87,10 +76,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     foreach ($onlyFiles as $eachFile){
         $fileCountIndex += 1;
         echo "$fileCountIndex. "; 
-        echo ($eachFile);        
-        ?> 
-        <!-- write delete code; -->
-        <?php
+        echo ($eachFile);
         echo '<br>';
     }
 } // end of printListOfDirectoriesAndFiles()
