@@ -30,7 +30,12 @@ if (isset($_GET ['folderName'])){ // if the user clicks on
     $folderNameThatWeWantToDelete= $_GET['folderName']; // grabbing the folder  name which we want to delete
     
     // deleting process
-    
+    if (is_dir($currentPath.'/'.$folderNameThatWeWantToDelete)){
+
+        rmdir($currentPath.'/'.$folderNameThatWeWantToDelete);
+        echo $operation.'"'.$folderNameThatWeWantToDelete.'" directory just deleted <br>';
+    } 
+
 }
 
 
