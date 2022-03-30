@@ -33,7 +33,27 @@ if (isset($_GET ['folderName'])){ // if the user clicks on
     if (is_dir($currentPath.'/'.$folderNameThatWeWantToDelete)){
 
         rmdir($currentPath.'/'.$folderNameThatWeWantToDelete);
-        echo $operation.'"'.$folderNameThatWeWantToDelete.'" directory just deleted <br>';
+        if (!is_dir($currentPath.'/'.$folderNameThatWeWantToDelete)){
+            echo $operation.'"'.$folderNameThatWeWantToDelete.'" directory just deleted <br>';
+        }
+        else{
+            echo 'could not delete the directory <br>';
+        }
+        
+    } 
+
+}
+if (isset($_GET ['fileName'])){ // if the user clicks on 
+    global $nextDir;
+    $nextDir = $_GET['deletePath']; // for keeping the current directory
+    $currentPath = rootDir.$nextDir; // the directory path, wwher the folder going to be deleted
+    $folderNameThatWeWantToDelete= $_GET['fileName']; // grabbing the folder  name which we want to delete
+    
+    // deleting process
+    if (file_exists($currentPath.'/'.$folderNameThatWeWantToDelete)){
+
+        unlink($currentPath.'/'.$folderNameThatWeWantToDelete);
+        echo $operation.'"'.$folderNameThatWeWantToDelete.'" file just deleted <br>';
     } 
 
 }
@@ -97,12 +117,44 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
         echo "$fileCountIndex. "; 
         echo ($eachFile);        
         ?> 
-        <!-- write delete code; -->
+            <a href="index.php?deletePath=<?php echo $nextDir; ?>&fileName=<?php echo $eachFile; ?>  " > <button>Delete</button></a> 
         <?php
         echo '<br>';
     }
 } // end of printListOfDirectoriesAndFiles()
     ?> 
+
+
+<?php   // after make directory submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    global $nextDir;
+    
+    
+  // collect value of input field
+  $DirectoryName = $_POST['folderName'];
+  
+  $nextDir=$_POST['path']; // grabbing path after root
+  $currentPath = rootDir.$nextDir;
+
+  
+  if (is_dir($currentPath.'/'.$DirectoryName)){
+      echo 'Directory already exist';
+  }else{
+    mkdir($currentPath.'/'.$DirectoryName);
+  }
+
+}
+?>
+
+
+
+<!-- //html start -->
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Make a directory in current path:<br> <input type="text" name="folderName" placeholder="Directory Name">
+  <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
+  <input type="submit"><br> <!-- make directory name submission -->
+</form>
+<br>
 
 
 
