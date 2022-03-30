@@ -20,13 +20,17 @@ if (isset($_GET ['go'])){ // if the user clicks on
     global $nextDir;
     $nextDir = $_GET['go'];
     $currentPath = rootDir.$nextDir;
+
 }
 
-if (isset($_GET ['deletePath'])){ // if the user clicks on 
+if (isset($_GET ['folderName'])){ // if the user clicks on 
     global $nextDir;
     $nextDir = $_GET['deletePath']; // for keeping the current directory
     $currentPath = rootDir.$nextDir; // the directory path, wwher the folder going to be deleted
-    echo $nextDir;
+    $folderNameThatWeWantToDelete= $_GET['folderName']; // grabbing the folder  name which we want to delete
+    
+    // deleting process
+    
 }
 
 
@@ -67,8 +71,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
             ?> 
             
             <a href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " > <?php echo "$fileCountIndex. "; echo $eachFile; ?> </a>
-           
-            <a href="index.php?deletePath=<?php echo $nextDir; ?>  " > <button>Delete</button></a>
+            <a href="index.php?deletePath=<?php echo $nextDir; ?>&folderName=<?php echo $eachFile; ?>  " > <button>Delete</button></a> 
             
             
             <?php
