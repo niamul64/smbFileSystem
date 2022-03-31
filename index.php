@@ -156,8 +156,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-
 <!-- //html start -->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   Make a directory/file in current path:<br> <input type="text" name="folderName" placeholder="Directory Name"><br>  
@@ -167,12 +165,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 <br>
 
-
-
 <?php
 // Main Function:
-$files= grabFileAndDirectories($currentPath);
-printListOfDirectoriesAndFiles($files)
+$files= grabFileAndDirectories($currentPath); // calling a function to scanning all directories and files in current path and return
+printListOfDirectoriesAndFiles($files) // show all directories and files on html page
 ?> 
 
 
