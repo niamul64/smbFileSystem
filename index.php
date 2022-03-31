@@ -8,52 +8,46 @@
 </head>
 <body>
 <?php
-
-
-
 define("rootDir","/home/user/Documents/sharef"); // this is the main directory path that have shared
-$nextDir='';
-$currentPath=rootDir;
+$nextDir=''; // variable to keep the path after root directory
+$currentPath=rootDir; // variable to keep full path
 
 
-if (isset($_GET ['go'])){ // if the user clicks on 
+if (isset($_GET ['go'])){ // if the user clicks on the directory to go insidde 
     global $nextDir;
-    $nextDir = $_GET['go'];
-    $currentPath = rootDir.$nextDir;
-
+    $nextDir = $_GET['go']; // grabbing path after root with the folder name which jus clicked 
+    $currentPath = rootDir.$nextDir; // making the full path
 }
 
-if (isset($_GET ['folderName'])){ // if the user clicks on 
+if (isset($_GET ['folderName'])){ // if the user clicks on delete button for directory delete 
     global $nextDir;
-    $nextDir = $_GET['deletePath']; // for keeping the current directory
-    $currentPath = rootDir.$nextDir; // the directory path, wwher the folder going to be deleted
-    $folderNameThatWeWantToDelete= $_GET['folderName']; // grabbing the folder  name which we want to delete
+    $nextDir = $_GET['deletePath']; // for keeping the path to directory
+    $currentPath = rootDir.$nextDir; // the directory path, where the folder going to be deleted
+    $folderNameThatWeWantToDelete= $_GET['folderName']; // grabbing the folder name which the user want to delete
     
     // deleting process
-    if (is_dir($currentPath.'/'.$folderNameThatWeWantToDelete)){
+    if (is_dir($currentPath.'/'.$folderNameThatWeWantToDelete)){ // checking the foldder actually exists
 
-        rmdir($currentPath.'/'.$folderNameThatWeWantToDelete);
-        if (!is_dir($currentPath.'/'.$folderNameThatWeWantToDelete)){
+        rmdir($currentPath.'/'.$folderNameThatWeWantToDelete); // deleting the folder 
+        if (!is_dir($currentPath.'/'.$folderNameThatWeWantToDelete)){ // delete process successfull or not successfull message print
             echo $operation.'"'.$folderNameThatWeWantToDelete.'" directory just deleted <br>';
         }
         else{
             echo 'could not delete the directory <br>';
-        }
-        
+        }  
     } 
-
 }
-if (isset($_GET ['fileName'])){ // if the user clicks on 
+
+if (isset($_GET ['fileName'])){ // if the user clicks on file delete butoon
     global $nextDir;
-    $nextDir = $_GET['deletePath']; // for keeping the current directory
-    $currentPath = rootDir.$nextDir; // the directory path, wwher the folder going to be deleted
-    $folderNameThatWeWantToDelete= $_GET['fileName']; // grabbing the folder  name which we want to delete
+    $nextDir = $_GET['deletePath']; // for keeping the file path after root path
+    $currentPath = rootDir.$nextDir; // the full file path, wher the file going to be deleted
+    $folderNameThatWeWantToDelete= $_GET['fileName']; // grabbing the file name which we want to delete
     
     // deleting process
-    if (file_exists($currentPath.'/'.$folderNameThatWeWantToDelete)){
-
-        unlink($currentPath.'/'.$folderNameThatWeWantToDelete);
-        echo $operation.'"'.$folderNameThatWeWantToDelete.'" file just deleted <br>';
+    if (file_exists($currentPath.'/'.$folderNameThatWeWantToDelete)){// checking: if file exists
+        unlink($currentPath.'/'.$folderNameThatWeWantToDelete); // deleting the file
+        echo $operation.'"'.$folderNameThatWeWantToDelete.'" file just deleted <br>'; // success full delete message
     } 
 
 }
