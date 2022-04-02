@@ -171,7 +171,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
 <!-- //directories of file creating form -->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   Make a directory/file in current path:<br> <input type="text" name="folderName" placeholder="Directory Name"><br>  
-  <input type="text" name="fileName" placeholder="File Name">.<input type="text" name="fileExtension" placeholder="Extension">
+  <input type="text" name="fileName" placeholder="File Name"> <b> . </b>  <input type="text" name="fileExtension" placeholder="Extension">
   <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
  <br> <input type="submit"><br> <!-- make directory name submission -->
 </form>
