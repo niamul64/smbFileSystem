@@ -18,8 +18,13 @@ function deleteNonemptyFile($pathToDirectory){// getting the path of dir to dele
     $files = scandir($pathToDirectory); // scaning all the dir and files inside the path
     $files = array_diff($files,array('.','..')); // removing extra dots
     foreach ($files as $file) {
-        echo $file;
+        if (is_dir($pathToDirectory.'/'.$file)) {
+            deleteNonemptyFile($pathToDirectory.'/'.$file);
+        } else {
+            unlink($pathToDirectory.'/'.$file);
+        }
     }
+    rmdir($pathToDirectory);
 
 }
 
