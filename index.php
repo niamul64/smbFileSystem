@@ -75,9 +75,10 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
     echo '<b>All Directories and Files:</b><br> '; // Print Heading 
  
-    echo 'current path: Root'.$nextDir.'<br>';
+    echo 'current path: Root'.$nextDir.'<br>'; // showing the current path the user in 
     ?> 
-     <a href="index.php?go=" > <?php echo 'Goto Home Directory <br><br>'; ?> </a>
+    <!-- button to: on click go to root directory -->
+     <a href="index.php?go=" > <?php echo 'Goto Home Directory <br><br>'; ?> </a> 
     <?php
 
     $fileCountIndex= 0; // count index  for folders and files 
@@ -100,7 +101,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
             echo '<br>';
         } 
         else{
-            array_push($onlyFiles, $eachFile);
+            array_push($onlyFiles, $eachFile); // taking the  files to another list 
         }
     }
 
@@ -109,7 +110,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     ?> 
 
     <?php
-    foreach ($onlyFiles as $eachFile){
+    foreach ($onlyFiles as $eachFile){ // loop to show all files, not directories 
         $fileCountIndex += 1;
         echo "$fileCountIndex. "; 
         echo ($eachFile);        
@@ -123,15 +124,14 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
 
 <?php   // after make directory submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating form submitted
     global $nextDir, $currentPath;
-    
     
   // collect value of input field
   $directoryName = $_POST['folderName'];
   $fileName=$_POST['fileName'];
   $fileExtension=$_POST['fileExtension'];
-  $nextDir=$_POST['path']; // grabbing path after root
+  $nextDir=$_POST['path']; // grabbing path after root path
   $currentPath = rootDir.$nextDir;
 
   if ($directoryName != ''){ // if directory name field is not empty
@@ -154,6 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!-- //html start -->
+<!-- //directories of file creating form -->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   Make a directory/file in current path:<br> <input type="text" name="folderName" placeholder="Directory Name"><br>  
   <input type="text" name="fileName" placeholder="File Name">.<input type="text" name="fileExtension" placeholder="Extension">
