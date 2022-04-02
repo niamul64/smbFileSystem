@@ -9,12 +9,20 @@
 <body>
 <?php
 
-
-
-
 define("rootDir","/home/user/Documents/sharef"); // this is the main directory path that have shared
 $nextDir=''; // variable to keep the path after root directory
 $currentPath=rootDir; // variable to keep full path
+
+function deleteNonemptyFile($pathToDirectory){// getting the path of dir to delete as argument.
+
+    $files = scandir($pathToDirectory); // scaning all the dir and files inside the path
+    $files = array_diff($files,array('.','..')); // removing extra dots
+    foreach ($files as $file) {
+        echo $file;
+    }
+
+}
+
 
 
 if (isset($_GET ['go'])){ // if the user clicks on the directory to go insidde 
@@ -37,10 +45,11 @@ if (isset($_GET ['folderName'])){ // if the user clicks on delete button for dir
             echo $operation.'"'.$folderNameThatWeWantToDelete.'" directory just deleted <br>';
         }
         else{
-            echo 'could not delete the directory <br>';
+            deleteNonemptyFile($currentPath.'/'.$folderNameThatWeWantToDelete);
         }  
     } 
 }
+
 
 if (isset($_GET ['fileName'])){ // if the user clicks on file delete butoon
     global $nextDir;
