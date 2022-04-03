@@ -89,7 +89,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
     echo '<b>All Directories and Files:</b><br> '; // Print Heading 
  
-    echo 'current path: Root'.$nextDir.'<br>'; // showing the current path the user in 
+    echo 'current path: <span id = "currentPath">Root'.$nextDir.'</span><br>'; // showing the current path the user in 
     ?> 
     <!-- button to: on click go to root directory -->
      <a href="index.php?go=" > <?php echo 'Goto Home Directory <br><br>'; ?> </a> 
@@ -98,8 +98,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
     <input type="text" name="backButton" value="<?php echo $nextDir; ?>" hidden>
     <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
-    <input type="submit" value='<<Back'>  <br> <!-- make directory name submission -->
-    
+    <input id='backButton' type="submit" value='<<Back'>  <br> <!-- make directory name submission -->
     </form>
 
 
