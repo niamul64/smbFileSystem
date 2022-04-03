@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>file System</title>
 </head>
 <body>
@@ -164,9 +165,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
         unset($splitPath[0]); // nothing in the 0th index
         $nextDir='';
         foreach ($splitPath as $path){
-            $nextDir = $nextDir.'/'.$path; 
+            $nextDir = $nextDir.'/'.$path; // creatring path after root
         }
-        $currentPath = rootDir.$nextDir;
+        $currentPath = rootDir.$nextDir; // total path
     }
     
 
@@ -193,6 +194,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
                     fclose($file_handle); // closing the file handler
                 }
         }
+        if (isset($_FILES['fileToUpload']) && $_FILES["fileToUpload"]["size"] >0 ){ // if a image selected
+
+            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$currentPath.'/'. $_FILES["fileToUpload"]["name"]);
+        }
     }
 }
 ?>
@@ -202,9 +207,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
 
 
 <!-- //directories of file creating form -->
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
   Make a directory/file in current path:<br> <input type="text" name="folderName" placeholder="Directory Name"><br>  
   <input type="text" name="fileName" placeholder="File Name"> <b> . </b>  <input type="text" name="fileExtension" placeholder="Extension">
+  <br>
+  <label for="fileToUpload">upload any external file to current directory</label>
+  <br><input type="file" name="fileToUpload" id="fileToUpload">
   <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
  <br> <input type="submit"><br> <!-- make directory name submission -->
 </form>
