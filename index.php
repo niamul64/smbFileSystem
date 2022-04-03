@@ -93,6 +93,16 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     ?> 
     <!-- button to: on click go to root directory -->
      <a href="index.php?go=" > <?php echo 'Goto Home Directory <br><br>'; ?> </a> 
+
+     <!-- button to go one step back -->
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+    <input type="text" name="backButton" value="<?php echo $nextDir; ?>" hidden>
+    <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
+    <input type="submit" value='<<Back'>  <br> <!-- make directory name submission -->
+    
+    </form>
+
+
     <?php
 
     $fileCountIndex= 0; // count index  for folders and files 
@@ -140,34 +150,58 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 <?php   // after make directory submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating form submitted
     global $nextDir, $currentPath;
+  
+    $flag= 1; // flag to identify is back button pressed // 1 for not pressed
     
-  // collect value of input field
-  $directoryName = $_POST['folderName'];
-  $fileName=$_POST['fileName'];
-  $fileExtension=$_POST['fileExtension'];
-  $nextDir=$_POST['path']; // grabbing path after root path
-  $currentPath = rootDir.$nextDir;
+    // collect value of input field
+    $nextDir = $_POST['path']; // grabbing path after root path
+    $currentPath = rootDir.$nextDir;
 
-  if ($directoryName != ''){ // if directory name field is not empty
-    if (is_dir($currentPath.'/'.$directoryName)){
-        echo 'Directory already exist';
-        }else{
-        mkdir($currentPath.'/'.$directoryName);
+    $backButton=$_POST['backButton'];
+    if ($backButton){
+        $flag= 0; // means: back button pressed
+        $splitPath = explode("/",$nextDir);
+        array_pop($splitPath); // to go back we need to remove the name of last Dir
+        unset($splitPath[0]); // nothing in the 0th index
+        $nextDir='';
+        foreach ($splitPath as $path){
+            $nextDir = $nextDir.'/'.$path; 
+        }
+        $currentPath = rootDir.$nextDir;
     }
-  }
-  if (($fileName != '') && ($fileExtension!='') ){ // if file name and extention fields are not empty
+    
 
-    if (file_exists($currentPath.'/'.$fileName.'.'.$fileExtension)){ // scecking the file alreadddy exists or not
-        echo 'file already exist';
-        }else{
-            $file_handle = fopen($currentPath.'/'.$fileName.'.'.$fileExtension, 'w'); // creating file, and a file handler
-            fclose($file_handle); // closing the file handler
+    
+    if ($flag){ // if back Button not pressed, then go inside
+        
+        $directoryName = $_POST['folderName']; // directory name to making a directory
+        $fileName = $_POST['fileName']; // file name to make new file
+        $fileExtension = $_POST['fileExtension']; // new file  extension
+
+        if ($directoryName != '') { // if directory name field is not empty
+            if (is_dir($currentPath.'/'.$directoryName)){
+                echo 'Directory already exist';
+                }else{
+                mkdir($currentPath.'/'.$directoryName);
+            }
+        }
+        if (($fileName != '') && ($fileExtension!='') ){ // if file name and extention fields are not empty
+    
+            if (file_exists($currentPath.'/'.$fileName.'.'.$fileExtension)){ // scecking the file alreadddy exists or not
+                echo 'file already exist';
+                }else{
+                    $file_handle = fopen($currentPath.'/'.$fileName.'.'.$fileExtension, 'w'); // creating file, and a file handler
+                    fclose($file_handle); // closing the file handler
+                }
+        }
     }
-  }
 }
 ?>
 
 <!-- //html start -->
+
+
+
 <!-- //directories of file creating form -->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   Make a directory/file in current path:<br> <input type="text" name="folderName" placeholder="Directory Name"><br>  
@@ -184,6 +218,6 @@ printListOfDirectoriesAndFiles($files) // show all directories and files on html
 ?> 
 
 
-
+<script src='script.js'></script>
 </body>
 </html>
