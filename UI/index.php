@@ -28,12 +28,30 @@
         </main>
 
 <!-- form start -->
+
         <div class="border p-1 container-xl">
-        <p class="p-1 d-flex justify-content-center bg-white text-dark">Create directory/file or upload a file in the current path:</p>
-            <div class="row p-1">
-                <div class="col-sm-6">col-sm-6</div>
-                <div class="col-sm-5">col-sm-5</div>
-            </div>
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
+                <p class="p-1 d-flex justify-content-center bg-white text-dark">Create directory/file or upload a file in the current path:</p>
+                <div class="row m-1 ">
+                    <div class="col-sm-7 border">
+                        <div class="input-group">
+                            <input type="text" name="folderName" placeholder="Directory Name"><br> 
+                        </div>
+                        
+                        <div class="input-group mt-1">
+                            <input type="text" name="fileName" class="" placeholder="File Name" >
+                            <span class="bg-white ms-2 me-2 ps-2 pe-2"><b> . </b> </span>
+                            <input type="text" name="fileExtension" class="" placeholder="Extension" >
+                        </div>
+
+                    </div>
+                    <div class="col-sm-5 border">
+                        <label for="fileToUpload">Upload any external file to current directory</label>
+                        <br><input class="" type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
+                    </div>
+                </div>
+            </form>
         </div>
 <!-- form end -->
 
