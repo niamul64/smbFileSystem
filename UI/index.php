@@ -30,7 +30,7 @@
 <!-- form start -->
         <div class="border p-1 container-xl">
             <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
-                <p class="p-1 d-flex justify-content-center bg-white text-dark">Create directory/file or upload a file in the current path:</p>
+                <p class="p-1 d-flex justify-content-center bg-white text-dark">Create Directory/File Or Upload A File in The Current Path</p>
                 <div class="row m-1 ">
                     <div class="col-sm-7 border">
                         <div class="input-group">
@@ -61,10 +61,10 @@
 <hr class='bg-success'>
 
 <!-- main body start -->
-        <div class="container mt-4"> 
+        <div class="container mt-1 mb-6"> 
             <div class="row">
 <!-- folder show start -->               
-                <div class="col-sm-5 border  border-5">
+                <div class="col-sm-4 border  border-5">
 
                     <!-- back button start -->
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
@@ -75,15 +75,183 @@
                     <!-- back button end -->
 
                     <p class="mt-1">Current Path: Root/</p> <!-- show current path -->
-
                     <p><b>Directories/Folders:</b></p>
+
+<!-- folder name and delete button start-->
+                    <div class="">
+                    
+                    <!-- each row -->
+                        <div class="border-bottom border-1 mb-2 row">
+                            <div class="col-8"> <a class="text-dark" href="">folder 0</a> </div>
+                            <div class="col-4"> <a class="bg-info text-dark" href="">Delete</a> </div>
+                        </div>
+                    
+                    <!-- each row -->
+                        <div class="border-bottom border-1 mb-2 row">
+                            <div class="col-8"> <a class="text-dark" href="">folder 1</a> </div>
+                            <div class="col-4"> <a class="bg-info text-dark" href="">Delete</a> </div>
+                        </div>
+
+                    <!-- each row -->
+                        <div class="border-bottom border-1 mb-2 row">
+                            <div class="col-8"> <a class="text-dark" href="">folder 2</a> </div>
+                            <div class="col-4 "> <a class="bg-info text-dark" href="">Delete</a> </div>
+                        </div>
+                    
+                        <!-- each row -->
+                        <div class="border-bottom border-1 mb-2 row">
+                            <div class="col-8"> <a class="text-dark" href="">folder 3</a> </div>
+                            <div class="col-4 "> <a class="bg-info text-dark" href="">Delete</a> </div>
+                        </div>
+                                            
+                        <!-- each row -->
+                        <div class="border-bottom border-1 mb-2 row">
+                            <div class="col-8"> <a class="text-dark" href="">folder 4</a> </div>
+                            <div class="col-4 "> <a class="bg-info text-dark" href="">Delete</a> </div>
+                        </div>
+                                            
+                        <!-- each row -->
+                        <div class="border-bottom border-1 mb-2 row">
+                            <div class="col-8"> <a class="text-dark" href="">folder 5</a> </div>
+                            <div class="col-4 "> <a class="bg-info text-dark" href="">Delete</a> </div>
+                        </div>
+                        
+                    
+                    </div>
+<!-- folder name and delete button start-->
+
+
 
                 </div>
 <!-- folder show end -->
 
 <!-- file show start -->
-                <div class="col-sm-7">
-                <p class="p-1 d-flex justify-content-center bg-white text-dark">Create directory/file or upload a file in the current path:</p>
+                <div class="col-sm-8">
+                    <p class="p-1 d-flex justify-content-center bg-white text-dark">All files in the current path</p>
+                    
+<!-- files card start -->
+                    <div class="container-fluid">
+                        <div class="row justify-content-md-center">
+
+                            <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" >
+                                <div class="card-body">
+                                    <h5 class="card-title">text.txt</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    <p class="card-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </p>
+                                    <a href="#" class="card-link">edit</a>
+                                    <a href="#" class="card-link">delete</a>
+                                </div>
+                            </div>
+
+                            <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" >
+                                <div class="card-body">
+                                    <h5 class="card-title">text.txt</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    <p class="card-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </p>
+                                    <a href="#" class="card-link">edit</a>
+                                    <a href="#" class="card-link">delete</a>
+                                </div>
+                            </div>
+                            <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" >
+                                <div class="card-body">
+                                    <h5 class="card-title">text.txt</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    <p class="card-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </p>
+                                    <a href="#" class="card-link">edit</a>
+                                    <a href="#" class="card-link">delete</a>
+                                </div>
+                            </div>
+                            <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" >
+                                <div class="card-body">
+                                    <h5 class="card-title">text.txt</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    <p class="card-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </p>
+                                    <a href="#" class="card-link">edit</a>
+                                    <a href="#" class="card-link">delete</a>
+                                </div>
+                            </div>
+                            <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" >
+                                <div class="card-body">
+                                    <h5 class="card-title">text.txt</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    <p class="card-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </p>
+                                    <a href="#" class="card-link">edit</a>
+                                    <a href="#" class="card-link">delete</a>
+                                </div>
+                            </div>
+                            <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" >
+                                <div class="card-body">
+                                    <h5 class="card-title">text.txt</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    <p class="card-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </p>
+                                    <a href="#" class="card-link">edit</a>
+                                    <a href="#" class="card-link">delete</a>
+                                </div>
+                            </div>
+                            <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" >
+                                <div class="card-body">
+                                    <h5 class="card-title">text.txt</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    <p class="card-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </p>
+                                    <a href="#" class="card-link">edit</a>
+                                    <a href="#" class="card-link">delete</a>
+                                </div>
+                            </div>
+                            <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" >
+                                <div class="card-body">
+                                    <h5 class="card-title">text.txt</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    <p class="card-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </p>
+                                    <a href="#" class="card-link">edit</a>
+                                    <a href="#" class="card-link">delete</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+<!-- files card ends -->
+
+
                 </div>
 <!-- file show start -->
 
@@ -95,8 +263,11 @@
     </div>
 <!-- container-fluid class end-->
 
+<!-- only to make gap start-->
+<br><br> 
+<!-- only to make gap start-->
 
-      <!-- footer start -->
+<!-- footer start -->
       <footer class="pt-5 text-muted text-center text-small fixed-bottom">
         <p class="mb-1">&copy; 2005–2022 Brotecs Technologies Limited</p>
         <ul class="list-inline">
@@ -105,7 +276,7 @@
           <li class="list-inline-item"><a href="#">Support</a></li>
         </ul>
       </footer>
-      <!-- footer start end-->
+<!-- footer start end-->
    
     
     <script src="script.js"></script>
