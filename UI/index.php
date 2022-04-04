@@ -28,7 +28,6 @@
         </main>
 
 <!-- form start -->
-
         <div class="border p-1 container-xl">
             <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
                 <p class="p-1 d-flex justify-content-center bg-white text-dark">Create directory/file or upload a file in the current path:</p>
@@ -50,12 +49,50 @@
                         <br><input class="" type="file" name="fileToUpload" id="fileToUpload">
                         <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
                     </div>
+                    <br> <input class="mt-2  btn btn-secondary" type="submit" value="Submit"><!-- submission -->
                 </div>
+                
+             
             </form>
+        
         </div>
 <!-- form end -->
 
-      </div>
+<hr class='bg-success'>
+
+<!-- main body start -->
+        <div class="container mt-4"> 
+            <div class="row">
+<!-- folder show start -->               
+                <div class="col-sm-5 border  border-5">
+
+                    <!-- back button start -->
+                    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                        <input type="text" name="backButton" value="<?php echo $nextDir; ?>" hidden>
+                        <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
+                        <input id='backButton' class="mt-2 btn btn-dark" type="submit" value='<<Back'>  <br> <!-- make directory name submission -->
+                    </form>
+                    <!-- back button end -->
+
+                    <p class="mt-1">Current Path: Root/</p> <!-- show current path -->
+
+                    <p><b>Directories/Folders:</b></p>
+
+                </div>
+<!-- folder show end -->
+
+<!-- file show start -->
+                <div class="col-sm-7">
+                <p class="p-1 d-flex justify-content-center bg-white text-dark">Create directory/file or upload a file in the current path:</p>
+                </div>
+<!-- file show start -->
+
+            </div>
+        </div>
+<!-- main body end -->
+
+
+    </div>
 <!-- container-fluid class end-->
 
 
