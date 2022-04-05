@@ -57,7 +57,7 @@ if (isset($_GET ['folderName'])){ // if the user clicks on delete button for dir
 }
 
 
-if (isset($_GET ['fileName'])){ // if the user clicks on file delete butoon
+if (isset($_GET ['fileName'])){ // if the user clicks on file delete button
     global $nextDir;
     $nextDir = $_GET['deletePath']; // for keeping the file path after root path
     $currentPath = rootDir.$nextDir; // the full file path, wher the file going to be deleted
@@ -68,7 +68,21 @@ if (isset($_GET ['fileName'])){ // if the user clicks on file delete butoon
         unlink($currentPath.'/'.$folderNameThatWeWantToDelete); // deleting the file
         echo $operation.'"'.$folderNameThatWeWantToDelete.'" file just deleted <br>'; // success full delete message
     } 
+}
 
+if (isset($_GET ['downloadFileName'])){ // if the user clicks on file download button
+    global $nextDir;
+    $nextDir = $_GET['downloadPath']; // for keeping the file path after root path
+    $currentPath = rootDir.$nextDir; // the full file path
+    $folderNameThatWeWantToDownload= $_GET['downloadFileName']; // grabbing the file name which we want to download
+    $file_url = $currentPath.'/'.$folderNameThatWeWantToDownload;
+    // deleting process
+    if (file_exists($file_url)){// checking: if file exists
+        header('Content-Type: application/octet-stream');
+        header("Content-Transfer-Encoding: Binary"); 
+        header("Content-disposition: attachment; filename=\"" . basename($file_url) . "\""); 
+        readfile($file_url); 
+    } 
 }
 
 
@@ -119,7 +133,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
             ?> 
             
             <a href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " > <?php echo "$fileCountIndex. "; echo $eachFile; ?> </a>
-            <a href="index.php?deletePath=<?php echo $nextDir; ?>&folderName=<?php echo $eachFile; ?>  " > <button>Delete</button></a> 
+            <a href="<?php echo $nextDir; ?>" > <button>Delete</button></a> 
             
             <?php
             echo '<br>';
@@ -140,6 +154,8 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
         echo ($eachFile);        
         ?> 
             <a href="index.php?deletePath=<?php echo $nextDir; ?>&fileName=<?php echo $eachFile; ?>  " > <button>Delete</button></a> 
+            <a href="index.php?downloadPath=<?php echo $nextDir; ?>&downloadFileName=<?php echo $eachFile; ?>  " > <button>Download</button></a> 
+
         <?php
         echo '<br>';
     }
