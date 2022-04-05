@@ -208,13 +208,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
 
 <!-- //directories of file creating form -->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
-  Make a directory/file in current path:<br> <input type="text" name="folderName" placeholder="Directory Name"><br>  
-  <input type="text" name="fileName" placeholder="File Name"> <b> . </b>  <input type="text" name="fileExtension" placeholder="Extension">
-  <br>
-  <label for="fileToUpload">upload any external file to current directory</label>
-  <br><input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
- <br> <input type="submit"><br> <!-- make directory name submission -->
+    Make a directory/file in current path:<br> <input type="text" name="folderName" placeholder="Directory Name"><br>  
+    <input type="text" name="fileName" placeholder="File Name"> <b> . </b>  <input type="text" name="fileExtension" placeholder="Extension">
+    <br>
+    <label for="fileToUpload">upload any external file to current directory</label>
+    <br><input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
+    <br> <input type="submit"><br> <!-- make directory name submission -->
 </form>
 <br>
 

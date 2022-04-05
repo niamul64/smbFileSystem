@@ -268,14 +268,14 @@
 <!-- only to make gap start-->
 
 <!-- footer start -->
-      <footer class="pt-5 text-muted text-center text-small fixed-bottom">
-        <p class="mb-1">&copy; 2005–2022 Brotecs Technologies Limited</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
+<footer class="pt-5 text-muted text-center text-small fixed-bottom">
+    <p class="mb-1">&copy; 2005–2022 Brotecs Technologies Limited</p>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+</footer>
 <!-- footer start end-->
    
     
