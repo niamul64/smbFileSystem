@@ -6,7 +6,6 @@ let currentPathText = document.querySelector('#currentPath');
 window.onload = function funLoad() { 
     let path= currentPathText.textContent; // grabing the text inside the path
     let backButton = document.querySelector('#backButton'); // back button element grabbing
-    console.log(path.length);
     if (path.length==5){
         backButton.style.display = 'none'; // if in the root directory then don't show 
     }else{
@@ -36,6 +35,57 @@ $( "#submitForm" ).hover(function() { // function Execute if hover over
 );
 
 
+$( ".folderId" ).hover(function() { // function Execute if hover over
+    $(this).addClass("bg-info");
+    },
+    function(){
+        $(this).removeClass("bg-info"); // function Execute if not hovering over
+    }
+);
+
+$( ".folderId" ).hover(function() { // function Execute if hover over
+    $(this).addClass("bg-info");
+    },
+    function(){
+        $(this).removeClass("bg-info"); // function Execute if not hovering over
+    }
+);
 
 
 
+$( ".folderDelete" ).hover(function() { // function Execute if hover over
+    $(this).addClass("bg-warning");
+    $(this).removeClass("bg-info");
+    },
+    function(){
+        $(this).removeClass("bg-warning"); // function Execute if not hovering over
+        $(this).addClass("bg-info");
+    }
+);
+
+$( "#gotoHome" ).hover(function() { // function Execute if hover over
+    $(this).addClass("bg-warning");
+    $(this).removeClass("bg-info");
+    },
+    function(){
+        $(this).removeClass("bg-warning"); // function Execute if not hovering over
+        $(this).addClass("bg-info");
+    }
+);
+
+$( ".deleteFile" ).hover(function() { // function Execute if hover over
+    $(this).addClass("bg-danger");
+
+    },
+    function(){
+        $(this).removeClass("bg-danger"); // function Execute if not hovering over
+    }
+);
+
+$( ".downloadFile" ).hover(function() { // function Execute if hover over
+    $(this).addClass("bg-info");
+    },
+    function(){
+        $(this).removeClass("bg-info"); // function Execute if not hovering over
+    }
+);
