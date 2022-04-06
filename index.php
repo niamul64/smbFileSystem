@@ -199,7 +199,7 @@ function createForm(){
                         <br><input class="" type="file" name="fileToUpload" id="fileToUpload">
                         <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
                     </div>
-                    <br> <input class="mt-2  btn btn-secondary" type="submit" value="Submit"><!-- submission -->
+                    <br> <input id="submitForm" class="mt-2  btn btn-secondary" type="submit" value="Submit"><!-- submission -->
                 </div>
                 
              
@@ -229,11 +229,11 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                         <input type="text" name="backButton" value="<?php echo $nextDir; ?>" hidden>
                         <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
-                        <input id='backButton' class="mt-2 btn btn-dark" type="submit" value='<<Back'>  <br> <!-- make directory name submission -->
+                        <input id='backButton' class="mt-2 btn btn-dark" type="submit" value='<<Back'>  <!-- make directory name submission -->
                     </form>
                     <!-- back button end -->
 
-                    <p class="mt-1">Current Path: Root/<?php echo $nextDir; ?> </p> <!-- show current path -->
+                    <p  class="mt-1">Current Path: <span id="currentPath">Root/<?php echo $nextDir; ?></span> </p> <!-- show current path -->
                     
                     <!-- button to: on click go to root directory -->
                     <a class="p-1 bg-info text-dark" href="index.php?go=" > <?php echo 'Goto Home Directory'; ?> </a> 
@@ -386,7 +386,7 @@ printFooter();
 // Main Function end
 ?>
 
-    
+<script src="jq.js"></script>
 
 </body>
 </html>
