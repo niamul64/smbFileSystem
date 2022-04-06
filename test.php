@@ -8,22 +8,12 @@
 </head>
 <body>
 
- <a href="../home/user/Documents/sharef/file.txt"></a>
+ 
  
 <?php 
-$curl= curl_init();
-
-curl_setopt($curl, CURLOPT_URL, '/home/user/Documents/sharef/file.txt');
-curl_exec($curl);
-
-echo $curl;
-
-
-$file_url = '/home/user/Documents/sharef/file.txt';
-header('Content-Type: application/octet-stream');
-header("Content-Transfer-Encoding: Binary"); 
-header("Content-disposition: attachment; filename=\"" . basename($file_url) . "\""); 
-readfile($file_url); 
+ini_set("display_errors",0);
+ini_set("log_errors", 1);
+ini_set("error_log","error_log.txt");
 
 ?>
 
