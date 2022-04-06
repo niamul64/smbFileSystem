@@ -149,6 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
         }
         if (isset($_FILES['fileToUpload']) && $_FILES["fileToUpload"]["size"] >0 ){ // if a image selected
 
+
             move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$currentPath.'/'. $_FILES["fileToUpload"]["name"]);
         }
     }
@@ -292,7 +293,13 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                             <div class="me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" > 
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $eachFile; ?></h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">size: 5KB</h6>
+                                    
+                                    <?php
+                                    $fileSize=filesize($currentPath.'/'.$eachFile);
+                                    $fileSize=$fileSize/1000000;
+                                    ?>
+                                    
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php  echo number_format($fileSize,2,'.','').'MB';?></h6>
                                     <p class="card-text">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
                                             <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
