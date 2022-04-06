@@ -85,7 +85,6 @@ if (isset($_GET ['downloadFileName'])){ // if the user clicks on file download b
     }
 }
 
-
 function grabFileAndDirectories($path){
 
     $files = scandir($path); // grabing all files in the directory
