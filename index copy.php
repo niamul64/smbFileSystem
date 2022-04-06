@@ -133,7 +133,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
             ?> 
             
             <a href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " > <?php echo "$fileCountIndex. "; echo $eachFile; ?> </a>
-            <a href="<?php echo $nextDir; ?>" > <button>Delete</button></a> 
+            <a href="index.php?deletePath=<?php echo $nextDir; ?>&folderName=<?php echo $eachFile; ?>  " > <button>Delete</button></a>  
             
             <?php
             echo '<br>';

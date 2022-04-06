@@ -93,7 +93,7 @@ function createForm(){
 ?>
 
 <?php
-function printListOfDirectoriesAndFiles($files){
+function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     global $nextDir, $currentPath;
     $onlyFiles= array(); // array to keep all files only, no directory.
 ?>
@@ -118,16 +118,32 @@ function printListOfDirectoriesAndFiles($files){
                     
                     <p><b>Directories/Folders:</b></p>
 
+                    <?php $fileCountIndex= 0; // count index  for folders and files  ?>
+
 <!-- folder name and delete button start-->
                     <div class="">
-                    
+            <?php
+
+            foreach ($listOfFilesAndDirectories as $eachFile){
+
+            if (is_dir($currentPath.'/'.$eachFile)){
+            $fileCountIndex += 1;
+            ?> 
+
                     <!-- each row -->
                         <div class="border-bottom border-1 mb-2 row">
-                            <div class="col-8"> <a class="text-dark" href="">folder 0</a> </div>
-                            <div class="col-4"> <a class="bg-info text-dark" href="">Delete</a> </div>
+                            <div class="col-8"> <a class="text-dark" href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " ><?php echo "$fileCountIndex. "; echo $eachFile; ?> </a> </div>
+                            <div class="col-4"> <a class="bg-info text-dark" href="index.php?deletePath=<?php echo $nextDir; ?>&folderName=<?php echo $eachFile; ?>  ">Delete</a> </div>
                         </div>
                         
-                    
+            <?php
+                    } 
+                    else{
+                        array_push($onlyFiles, $eachFile); // taking the  files to another list 
+                    }
+                }
+            ?>
+
                     </div>
 <!-- folder name and delete button start-->
 
