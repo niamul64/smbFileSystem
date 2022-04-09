@@ -1,4 +1,5 @@
 window.onload = function funLoad() { 
+    
 
     // $.ajax({
     //     url: "/home/user/Documents/sharef/abc.txt",
@@ -14,20 +15,13 @@ window.onload = function funLoad() {
 
     //     }
     // });
-    $(function(){
-        $.ajax({
-            type: "HEAD",
-            async: true,
-            url: "//home/user/Documents/sharef/main.js"
-        }).done(function(){
-            console.log("found");
-        }).fail(function () {
-            console.log("not  at all found");
-        })
+    $.ajax({//AJAX request
+
+        url: "/testAjax/index.php/",
+        data: {firstname: 'niamul'},
+        success: function (response) {
+            
+            }
     });
+}
 
-} 
-
-
-
-// "/home/user/Documents/abc.txt"

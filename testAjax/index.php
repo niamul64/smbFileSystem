@@ -10,8 +10,20 @@
 </head>
 <body>
     
+    <?php 
+    $nextDir='';
+    if (isset($_GET ['name'])){ // if the user clicks on the directory to go insidde 
+        global $nextDir;
+        $nextDir = $_GET['name']; // grabbing path after root with the folder name which jus clicked 
+    }
+    else{
+        echo "no get";
+    }
+    
+    ?>
 
 
-<script src="js.js"></script>
+<h1> <?php echo "my name is: ". $nextDir;?></h1>
+<script src="/testAjax/js.js"></script>
 </body>
 </html>
