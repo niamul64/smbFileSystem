@@ -52,17 +52,6 @@ $( ".folderId" ).hover(function() { // function Execute if hover over
 );
 
 
-
-$( ".folderDelete" ).hover(function() { // function Execute if hover over
-    $(this).addClass("bg-warning");
-    $(this).removeClass("bg-info");
-    },
-    function(){
-        $(this).removeClass("bg-warning"); // function Execute if not hovering over
-        $(this).addClass("bg-info");
-    }
-);
-
 $( "#gotoHome" ).hover(function() { // function Execute if hover over
     $(this).addClass("bg-warning");
     $(this).removeClass("bg-info");
@@ -89,3 +78,29 @@ $( ".downloadFile" ).hover(function() { // function Execute if hover over
         $(this).removeClass("bg-info"); // function Execute if not hovering over
     }
 );
+
+
+$( ".folderDelete" ).hover(function() { // function Execute if hover over
+    $(this).addClass("bg-warning");
+    $(this).removeClass("bg-info");
+    },
+    function(){
+        $(this).removeClass("bg-warning"); // function Execute if not hovering over
+        $(this).addClass("bg-info");
+    }
+);
+
+function deleteDir(path,folder){
+    if (confirm(`Are you sure: Delete ${folder} folder`)){
+        $.ajax({//AJAX request
+
+            url: "index.php",
+            data: {deletePath: path,folderName:folder},
+            success: function (response) {
+                window.location.reload();
+                }
+        });
+
+    }
+    
+}
