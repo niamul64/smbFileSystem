@@ -20,7 +20,7 @@ window.onload = function funLoad() {
         url: "/testAjax/index.php/",
         data: {firstname: 'niamul'},
         success: function (response) {
-            
+            window.location.reload();
             }
     });
 }
