@@ -35,6 +35,9 @@ $nextDir=''; // variable to keep the path after root directory
 $currentPath=rootDir; // variable to keep full path
 ?>
 
+
+
+
 <?php
 function deleteNonemptyFile($pathToDirectory){// getting the path of dir to delete as argument.
 
@@ -56,6 +59,8 @@ function deleteNonemptyFile($pathToDirectory){// getting the path of dir to dele
 
 //all get request End
 ?>
+
+
 <?php
 //all get/post request
 if (isset($_GET ['go'])){ // if the user clicks on the directory to go insidde 
@@ -91,9 +96,7 @@ if (isset($_GET ['fileName'])){ // if the user clicks on file delete button
     // deleting process
     if (file_exists($currentPath.'/'.$folderNameThatWeWantToDelete)){// checking: if file exists
         unlink($currentPath.'/'.$folderNameThatWeWantToDelete); // deleting the file
-        // echo $operation.'"'.$folderNameThatWeWantToDelete.'" file just deleted <br>'; // success full delete message
-        echo $currentPath;
-        
+        echo $operation.'"'.$folderNameThatWeWantToDelete.'" file just deleted <br>'; // success full delete message
     } 
 }
 
@@ -267,7 +270,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                     <!-- each row -->
                         <div class="border-bottom border-1 mb-2 row">
                             <div class="col-8"> <a class="folderId text-dark" href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " ><?php echo "$fileCountIndex. "; echo $eachFile; ?> </a> </div>
-                            <div class="col-4"> <a class="folderDelete bg-info text-dark" href="index.php?deletePath=<?php echo $nextDir; ?>&folderName=<?php echo $eachFile; ?>  ">Delete</a> </div>
+                            <div class="col-4"> <a class="folderDelete bg-info text-dark" onclick="deleteDir('<?php echo $nextDir; ?>','<?php echo $eachFile; ?>' )">Delete</a> </div>
                         </div>
                         
             <?php
@@ -318,7 +321,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                                         </svg>
                                     </p>
 
-                                    <a class="deleteFile card-link text-dark " href="index.php?deletePath=<?php echo $nextDir; ?>&fileName=<?php echo $eachFile; ?> "> 
+                                    <a class="deleteFile card-link text-dark " onclick="deletefile('<?php echo $nextDir; ?>','<?php echo $eachFile; ?>' )"> 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                         </svg>
