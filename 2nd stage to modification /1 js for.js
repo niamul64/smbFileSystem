@@ -91,7 +91,7 @@ $( ".folderDelete" ).hover(function() { // function Execute if hover over
 );
 
 function deleteDir(path,folder){
-    if (confirm(`Are you sure: Delete ${folder} folder`)){
+    if (confirm(`Are you sure: Delete " ${folder} " folder?`)){
         
         $.ajax({//AJAX request
             
@@ -107,7 +107,7 @@ function deleteDir(path,folder){
 }
 
 function deletefile(path,file){
-    if (confirm(`Are you sure: Delete ${file} folder`)){
+    if (confirm(`Are you sure: Delete "${file}" file?`)){
         window.location.reload();
         $.ajax({//AJAX request
             url: "index.php",
