@@ -91,7 +91,9 @@ if (isset($_GET ['fileName'])){ // if the user clicks on file delete button
     // deleting process
     if (file_exists($currentPath.'/'.$folderNameThatWeWantToDelete)){// checking: if file exists
         unlink($currentPath.'/'.$folderNameThatWeWantToDelete); // deleting the file
-        echo $operation.'"'.$folderNameThatWeWantToDelete.'" file just deleted <br>'; // success full delete message
+        // echo $operation.'"'.$folderNameThatWeWantToDelete.'" file just deleted <br>'; // success full delete message
+        echo $currentPath;
+        
     } 
 }
 
@@ -265,7 +267,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                     <!-- each row -->
                         <div class="border-bottom border-1 mb-2 row">
                             <div class="col-8"> <a class="folderId text-dark" href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " ><?php echo "$fileCountIndex. "; echo $eachFile; ?> </a> </div>
-                            <div class="col-4"> <a class="folderDelete bg-info text-dark" onclick="deleteDir('<?php echo $nextDir; ?>','<?php echo $eachFile; ?>' )">Delete</a> </div>
+                            <div class="col-4"> <a class="folderDelete bg-info text-dark" href="index.php?deletePath=<?php echo $nextDir; ?>&folderName=<?php echo $eachFile; ?>  ">Delete</a> </div>
                         </div>
                         
             <?php

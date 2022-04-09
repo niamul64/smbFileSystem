@@ -90,17 +90,21 @@ $( ".folderDelete" ).hover(function() { // function Execute if hover over
     }
 );
 
-function deleteDir(path,folder){
-    if (confirm(`Are you sure: Delete ${folder} folder`)){
-        $.ajax({//AJAX request
+// function deleteDir(path,folder){
 
-            url: "index.php",
-            data: {deletePath: path,folderName:folder},
-            success: function (response) {
-                window.location.reload();
-                }
-        });
 
-    }
+//     if (confirm(`Are you sure: Delete ${folder} folder`)){
+//         console.log(path);
+//         console.log(`folder name${folder}`)
+//         $.ajax({//AJAX request
+
+//             url: "index.php",
+//             data: {deletePath: path,folderName:folder},
+//             success: function (response) {
+//                 // window.location.reload();
+//                 }
+//         });
+
+//     }
     
-}
+// }
