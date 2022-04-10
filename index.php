@@ -16,7 +16,8 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="style.css"> -->
-    
+    <link rel="stylesheet" href="style.css">
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -29,14 +30,11 @@
 <body class="bg-light">
 <?php
 // all global variables
-
 define("rootDir","/home/user/Documents/sharef"); // this is the main directory path that have shared
 $nextDir=''; // variable to keep the path after root directory
 $currentPath=rootDir; // variable to keep full path
+$messageShow=''; // keep all kind of message to show on alert
 ?>
-
-
-
 
 <?php
 function deleteNonemptyFile($pathToDirectory){// getting the path of dir to delete as argument.
@@ -56,18 +54,17 @@ function deleteNonemptyFile($pathToDirectory){// getting the path of dir to dele
 
 <?php
 //all get request
-
+if (isset($_GET ['reloadPath'])){ 
+    global $nextDir;
+    $nextDir = $_GET['reloadPath']; // grabbing path after root with the folder name which jus clicked 
+    $currentPath = rootDir.$nextDir; // making the full path
+}
 //all get request End
 ?>
 
 
 <?php
 //all get/post request
-if (isset($_GET ['reloadPath'])){ // if the user clicks on the directory to go insidde 
-    global $nextDir;
-    $nextDir = $_GET['reloadPath']; // grabbing path after root with the folder name which jus clicked 
-    $currentPath = rootDir.$nextDir; // making the full path
-}
 
 if (isset($_GET ['go'])){ // if the user clicks on the directory to go insidde 
     global $nextDir;
