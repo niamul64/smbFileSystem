@@ -90,33 +90,91 @@ $( ".folderDelete" ).hover(function() { // function Execute if hover over
     }
 );
 
-function deleteDir(path,folder){
-    if (confirm(`Are you sure: Delete " ${folder} " folder?`)){
+// function deleteDir(path,folder){
+//     if (confirm(`Are you sure: Delete " ${folder} " folder?`)){
         
-        $.ajax({//AJAX request
+//         $.ajax({//AJAX request
             
+//             url: "index.php",
+//             data: {deletePath: path,folderName:folder},
+//             success: function (response) {
+//                 window.location.reload();
+//                 }
+//         });
+//     }
+    
+// }
+
+function deleteDir(path,folder){
+    Swal.fire({
+        title: ` Delete: ${folder}`,
+        text: "Are You sure?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+        $.ajax({//AJAX request
             url: "index.php",
             data: {deletePath: path,folderName:folder},
             success: function (response) {
-                window.location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Folder Deleted',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }).then(function() {
+                    window.location.reload();
+                });
                 }
         });
-
-    }
-    
+        }
+      })   
 }
 
+// function deletefile(path,file){
+//     if (confirm(`Are you sure: Delete "${file}" file?`)){
+//         window.location.reload();
+//         $.ajax({//AJAX request
+//             url: "index.php",
+//             data: {deletePath: path ,fileName:file},
+//             success: function (response) {
+//                 window.location.reload();
+//                 }
+//         });
+
+//     }
+    
+// }
+
 function deletefile(path,file){
-    if (confirm(`Are you sure: Delete "${file}" file?`)){
-        window.location.reload();
+    
+    Swal.fire({
+        title: ` Delete: ${file}`,
+        text: "Are You sure?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
         $.ajax({//AJAX request
             url: "index.php",
             data: {deletePath: path ,fileName:file},
             success: function (response) {
-                window.location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'File Deleted',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }).then(function() {
+                    window.location.reload();
+                });
                 }
         });
-
-    }
-    
+        }
+      })      
 }
