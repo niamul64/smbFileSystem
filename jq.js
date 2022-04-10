@@ -126,7 +126,8 @@ function deleteDir(path,folder){
                     showConfirmButton: false,
                     timer: 1500
                   }).then(function() {
-                    window.location.reload();
+                    let url = 'index.php?reloadPath='+path;
+                    window.location.assign(url);
                 });
                 }
         });
@@ -171,10 +172,12 @@ function deletefile(path,file){
                     showConfirmButton: false,
                     timer: 1500
                   }).then(function() {
-                    window.location.reload();
+                    let url = 'index.php?reloadPath='+path;
+                    window.location.assign(url);
                 });
                 }
         });
         }
       })      
 }
+

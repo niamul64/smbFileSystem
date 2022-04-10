@@ -23,6 +23,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="jqForUploadFile.js"></script>
     <title>File Explorer</title>
  
 </head>
@@ -170,9 +171,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
                 }
         }
         if (isset($_FILES['fileToUpload']) && $_FILES["fileToUpload"]["size"] >0 ){ // if a image selected
-            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$currentPath.'/'. $_FILES["fileToUpload"]["name"]);
-            header("Location: index.php?reloadPath=".$_POST['path']);
-            exit;
+            if (file_exists($currentPath.'/'.$_FILES["fileToUpload"]["name"])){
+                ?> 
+                <script> // calling a function to replace or keep both files
+                    uploadFile('<?php echo $_FILES["fileToUpload"]["tmp_name"]; ?>','<?php echo $currentPath; ?>','<?php echo $_FILES["fileToUpload"]["name"];?>','<?php echo $nextDir;?>'  );
+                </script>
+                <?php
+            }
+            else{
+                move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$currentPath.'/'. $_FILES["fileToUpload"]["name"]);
+                header("Location: index.php?reloadPath=".$_POST['path']);
+                exit;
+            }
+           
+
         }
     }
 }
@@ -224,10 +236,7 @@ function createForm(){
                     </div>
                     <br> <input id="submitForm" class="mt-2  btn btn-secondary" type="submit" value="Submit"><!-- submission -->
                 </div>
-                
-             
             </form>
-        
         </div>
 <!-- form end -->
 
