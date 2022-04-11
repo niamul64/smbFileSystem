@@ -24,6 +24,26 @@ $( "#backButton" ).hover(function() { // function Execute if hover over
     }
 );
 
+
+$( "#submitButton" ).hover(function() { // function Execute if hover over
+    $("#submitButton").removeClass("btn-secondary");
+    $("#submitButton").addClass("btn-success");
+    },
+    function(){
+        $("#submitButton").removeClass("btn-success");
+        $("#submitButton").addClass("btn-secondary"); // function Execute if not hovering over
+    }
+);
+$( "#submitButton2" ).hover(function() { // function Execute if hover over
+    $("#submitButton2").removeClass("btn-secondary");
+    $("#submitButton2").addClass("btn-success");
+    },
+    function(){
+        $("#submitButton2").removeClass("btn-success");
+        $("#submitButton2").addClass("btn-secondary"); // function Execute if not hovering over
+    }
+);
+
 $( "#submitForm" ).hover(function() { // function Execute if hover over
     $("#submitForm").removeClass("btn-secondary");
     $("#submitForm").addClass("btn-success");
@@ -184,9 +204,9 @@ function deletefile(path,file){
 
 //////////
 //ajax form post
-function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloadUrl){
+function keepBothOrReplaceFile(formData, reloadUrl){
     Swal.fire({
-        title: 'Same file exists.',
+        title: 'Same file already exists.',
         text: "If you want to replace the old file with new one then press the 'Replace' button and if you want to keep both files then press 'Keep Both' button",
         showDenyButton: true,
         showCancelButton: true,
@@ -234,7 +254,7 @@ function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloa
 }
 
 
-$("#submit_form").on("submit", function(e){ //first method
+$("#submit_form2").on("submit", function(e){ //first method
     e.preventDefault();
     let reloadUrl='';
     var formData = new FormData(this);
@@ -252,14 +272,10 @@ $("#submit_form").on("submit", function(e){ //first method
         let queryArry = response.split("|");
         reloadUrl=queryArry[0];
         let fileExits=parseInt(queryArry[1]);
-        let dirExists=parseInt(queryArry[2]);
-        let newCreateFile=parseInt(queryArry[3]);
 
         if (fileExits){
-            // console.log('pass');
-           
-                // console.log('pass');
-            keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloadUrl);
+
+            keepBothOrReplaceFile(formData,reloadUrl);
         }
         else{
             let url = 'index.php?reloadPath='+reloadUrl;
@@ -270,3 +286,61 @@ $("#submit_form").on("submit", function(e){ //first method
 
 })
 
+$("#submit_form").on("submit", function(e){ //first method
+    e.preventDefault();
+
+    let reloadUrl='';
+    var formData = new FormData(this);
+    $.ajax({
+        type: "POST",
+        url: "fileOrdirectoryCreate.php",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            return response;
+        },
+        
+    }).then(function(response) {
+        let queryArry = response.split("|");
+        reloadUrl=queryArry[0];
+        let directoryExists=parseInt(queryArry[1]);
+        let newCreatingFile=parseInt(queryArry[2]);
+        if (directoryExists && newCreatingFile){
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'The file and directory already exist. Please choose another name and try again.',
+               
+              }).then(function(response) {
+                let url = 'index.php?reloadPath='+reloadUrl;
+                window.location.assign(url);
+            })
+        }else if(directoryExists){
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'The directory already exists. Please choose another name and try again.',
+               
+              }).then(function(response) {
+                let url = 'index.php?reloadPath='+reloadUrl;
+                window.location.assign(url);
+            })
+        }
+        else if(newCreatingFile){
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'The file already exists. Please choose another name and try again.',
+               
+              }).then(function(response) {
+                let url = 'index.php?reloadPath='+reloadUrl;
+                window.location.assign(url);
+            })
+        }
+        else{
+            let url = 'index.php?reloadPath='+reloadUrl;
+            window.location.assign(url);
+        }
+    });
+})

@@ -120,19 +120,16 @@ if (isset($_GET ['downloadFileName'])){ // if the user clicks on file download b
 }
 
 
-// after make directory submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating form submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // back button
     global $nextDir, $currentPath;
-  
-    $flag= 1; // flag to identify is back button pressed // 1 for not pressed
     
-    // collect value of input field
+   
     $nextDir = $_POST['path']; // grabbing path after root path
     $currentPath = rootDir.$nextDir;
 
     $backButton=$_POST['backButton'];
     if ($backButton){
-        $flag= 0; // means: back button pressed
+   
         $splitPath = explode("/",$nextDir);
         array_pop($splitPath); // to go back we need to remove the name of last Dir
         unset($splitPath[0]); // nothing in the 0th index
@@ -142,35 +139,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
         }
         $currentPath = rootDir.$nextDir; // total path
     }    
-    if ($flag){ // if back Button not pressed, then go inside
-        
-        $directoryName = $_POST['folderName']; // directory name to making a directory
-        $fileName = $_POST['fileName']; // file name to make new file
-        $fileExtension = $_POST['fileExtension']; // new file  extension
-
-        if ($directoryName != '') { // if directory name field is not empty
-            if (is_dir($currentPath.'/'.$directoryName)){
-                echo 'Directory already exist';
-                }else{
-                mkdir($currentPath.'/'.$directoryName);
-                
-                header("Location: index.php?reloadPath=".$_POST['path']);
-                exit;
-            }
-        }
-        if (($fileName != '') && ($fileExtension!='') ){ // if file name and extention fields are not empty
-    
-            if (file_exists($currentPath.'/'.$fileName.'.'.$fileExtension)){ // scecking the file alreadddy exists or not
-                echo 'file already exist';
-                }else{
-                    $file_handle = fopen($currentPath.'/'.$fileName.'.'.$fileExtension, 'w'); // creating file, and a file handler
-                    fclose($file_handle); // closing the file handler
-                    header("Location: index.php?reloadPath=".$_POST['path']);
-                    exit;
-                }
-        }
-
-    }
 }
 
 //all get/post request End
@@ -198,10 +166,11 @@ function createForm(){
 
 <!-- form start -->
 <div class="border p-1 container-xl">
-            <form id="submit_form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
+            
                 <p class="p-1 d-flex justify-content-center bg-white text-dark">Create Directory/File Or Upload A File in The Current Path</p>
                 <div class="row m-1 ">
                     <div class="col-sm-7 border">
+                    <form id="submit_form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                         <div class="input-group">
                             <input type="text" name="folderName" placeholder="Directory Name"><br> 
                         </div>
@@ -211,16 +180,24 @@ function createForm(){
                             <span class="bg-white ms-2 me-2 ps-2 pe-2"><b> . </b> </span>
                             <input type="text" name="fileExtension" class="" placeholder="Extension" >
                         </div>
+                        <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
+                        <input id="submitButton" class="mt-2  btn btn-secondary" type="submit" value="Submit"><!-- submission -->
+                    </form>
 
                     </div>
+                    
                     <div class="col-sm-5 border">
-                        <label for="fileToUpload">Upload any external file to current directory</label>
-                        <br><input class="" type="file" name="fileToUpload" id="fileToUpload">
+                    <form id="submit_form2" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
+                        <label class="pt-1" for="fileToUpload">Upload any external file to current directory</label>
+                        <br><input class="mt-1" type="file" name="fileToUpload" id="fileToUpload">
                         <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
+                        <br> <input id="submitButton2" class="mt-2 btn btn-secondary" type="submit" value="Submit"><!-- submission -->
+                    </form>
+                   
                     </div>
-                    <br> <input id="submitForm" class="mt-2  btn btn-secondary" type="submit" value="Submit"><!-- submission -->
+
                 </div>
-            </form>
+            
         </div>
 <!-- form end -->
 
@@ -281,7 +258,6 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                     }
                 }
             ?>
-
                     </div>
 <!-- folder name and delete button start-->
 
@@ -297,7 +273,6 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 <!-- files card start -->
                     <div class="container-fluid">
                         <div class="row justify-content-md-center">
-
 
                         <?php
                         foreach ($onlyFiles as $eachFile){ // loop to show all files, not directories 
@@ -337,7 +312,6 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                             </div>
                             <!-- each file end -->
                             <?php
-
                                 }
                             ?> 
                             
