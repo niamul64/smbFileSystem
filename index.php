@@ -188,7 +188,7 @@ function createForm(){
                     
                     <div class="col-sm-5 border">
                     <form id="submit_form2" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
-                        <label class="pt-1" for="fileToUpload">Upload any external file to current directory</label>
+                        <label class="pt-1" for="fileToUpload">To upload any external file to current directory:</label>
                         <br><input class="mt-1" type="file" name="fileToUpload" id="fileToUpload">
                         <input type="text" name="path" value="<?php echo $nextDir; ?>" hidden>
                         <br> <input id="submitButton2" class="mt-2 btn btn-secondary" type="submit" value="Submit"><!-- submission -->
@@ -200,12 +200,11 @@ function createForm(){
             
         </div>
 <!-- form end -->
-
 <hr class='bg-success'>
-
 <?php 
 }
 ?>
+
 
 <?php
 function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
@@ -217,6 +216,17 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
             <div class="row">
 <!-- folder show start -->               
                 <div class="col-sm-4 border  border-5">
+                    
+<!-- select sorting option for folders start-->
+                    <div class="container-fluid" > 
+                        <div class="row justify-content-md-center" >
+                            <select id="select1" >
+                                <option value="1">Sort By Alphabetical Order</option>
+                                <option value="2">Sort By Creation Date</option>
+                            </select>
+                        </div>
+                    </div>
+<!-- select sorting option for folders end-->
 
                     <!-- back button start -->
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
@@ -268,8 +278,22 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
 <!-- file show start -->
                 <div class="col-sm-8">
+
+<!-- select sorting option for files -->
+                    <div class="container-fluid" > 
+                        <div class="row justify-content-md-center bg-white text-dark" >
+                            <select id="select2" class="col-lg-5" >
+                                <option value="1">Sort By Alphabetical Order</option>
+                                <option value="2">Sort By Creation Date</option>
+                                <option value="2">Sort By File Size</option>
+                            </select>
+                        </div>
+                    </div>
+
+<!-- select sorting option for files end  -->
+
                     <p class="p-1 d-flex justify-content-center bg-white text-dark">All files in the current path</p>
-                    
+
 <!-- files card start -->
                     <div class="container-fluid">
                         <div class="row justify-content-md-center">

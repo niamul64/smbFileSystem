@@ -339,8 +339,17 @@ $("#submit_form").on("submit", function(e){ //first method
             })
         }
         else{
+        
             let url = 'index.php?reloadPath='+reloadUrl;
             window.location.assign(url);
         }
     });
 })
+
+// sorting option
+
+
+$('#select1').on('change', function() {
+
+    alert( this.value );
+});
