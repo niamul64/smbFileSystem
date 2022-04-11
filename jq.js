@@ -188,7 +188,7 @@ function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloa
 
 
     Swal.fire({
-        title: 'Same file exits. Select a option:',
+        title: 'Same file exists. Select a option:',
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Keep Both',
@@ -223,7 +223,7 @@ function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloa
                     console.log(response);
                 },
                 }).then(function(response) {
-                    Swal.fire('Changes are not saved', '', 'info').then(function(response) {
+                    Swal.fire('File replaced','','success').then(function(response) {
                         let url = 'index.php?reloadPath='+reloadUrl;
                         window.location.assign(url);
                     });
