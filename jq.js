@@ -206,7 +206,7 @@ function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloa
                     console.log(response);
                 },
                 }).then(function(response) {
-                    Swal.fire('Saved!', '', 'success').then(function(response) {
+                    Swal.fire('Saved!', 'New file name: '+response, 'success').then(function(response) {
                         let url = 'index.php?reloadPath='+reloadUrl;
                         window.location.assign(url);
                     });

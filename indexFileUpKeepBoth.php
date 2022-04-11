@@ -19,12 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
             $tmp=$_FILES["fileToUpload"]["tmp_name"];
-            echo $tmp;
+      
             move_uploaded_file($tmp,$currentPath.'/'.$fileName.$_FILES["fileToUpload"]["name"]);
 
     }
 
-echo $fileExists;
+echo $fileName.$_FILES["fileToUpload"]["name"];
     
 }
 
