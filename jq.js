@@ -188,14 +188,15 @@ function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloa
 
 
     Swal.fire({
-        title: 'Same file exists. Select a option:',
+        title: 'Same file exists.',
+        text: "If you want to replace the old file with new one then press the 'Replace' button and if you want to keep both files then press 'Keep Both' button",
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Keep Both',
         denyButtonText: `Replace`,
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
+        if (result.isConfirmed) { // keep both
                 $.ajax({
                 type: "POST",
                 url: "indexFileUpKeepBoth.php",
@@ -212,7 +213,7 @@ function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloa
                     });
                 })
           
-        } else if (result.isDenied) {
+        } else if (result.isDenied) { // replace 
             $.ajax({
                 type: "POST",
                 url: "index_up_replace.php",
@@ -223,6 +224,8 @@ function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloa
                     console.log(response);
                 },
                 }).then(function(response) {
+
+
                     Swal.fire('File replaced','','success').then(function(response) {
                         let url = 'index.php?reloadPath='+reloadUrl;
                         window.location.assign(url);
