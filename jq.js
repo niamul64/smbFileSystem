@@ -358,7 +358,8 @@ $('#select1').on('change', function() { // folder sort
             url: "folderSort.php",
             data: {path:pathAfterRoot},
             success: function (response) {
-                console.log(response);
+                // console.log(response);
+                $("#dirPrintUnderThisTag").html(response);
             },
         });
     }else{

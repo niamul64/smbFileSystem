@@ -223,7 +223,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                         <div class="row justify-content-md-center" >
                             <select id="select1" >
                                 <option value="1">Sort By Alphabetical Order</option>
-                                <option value="2">Sort By Creation Date</option>
+                                <option value="2">Sort By Creation time</option>
                             </select>
                         </div>
                     </div>
@@ -247,7 +247,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                     <?php $fileCountIndex= 0; // count index  for folders and files  ?>
 
 <!-- folder name and delete button start-->
-                    <div class="">
+                    <div id='dirPrintUnderThisTag' class="">
             <?php
 
             foreach ($listOfFilesAndDirectories as $eachFile){
