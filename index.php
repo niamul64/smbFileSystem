@@ -91,6 +91,7 @@ if (isset($_GET ['folderName'])){ // if the user clicks on delete button for dir
         }  
     } 
 }
+
 if (isset($_GET ['fileName'])){ // if the user clicks on file delete button
     global $nextDir;
     $nextDir = $_GET['deletePath']; // for keeping the file path after root path

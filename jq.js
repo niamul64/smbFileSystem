@@ -347,9 +347,57 @@ $("#submit_form").on("submit", function(e){ //first method
 })
 
 // sorting option
+$('#select1').on('change', function() { // folder sort 
+    let sortValue= this.value;
+    let currentPath= $("#currentPath").text();
+    let pathAfterRoot=currentPath.substring(5,);
 
+    if (sortValue==2){
+        $.ajax({
+            type: "POST",
+            url: "folderSort.php",
+            data: {path:pathAfterRoot},
+            success: function (response) {
+                console.log(response);
+            },
+        });
+    }else{
+        let url = 'index.php?reloadPath='+pathAfterRoot;
+        window.location.assign(url);
+    }
+});
 
-$('#select1').on('change', function() {
+$('#select2').on('change', function() { // file sort 
+    let sortValue= this.value;
+    let currentPath= $("#currentPath").text();
+    let pathAfterRoot=currentPath.substring(5, );
 
-    alert( this.value );
+    if (sortValue==2){
+        $.ajax({
+            type: "POST",
+            url: "fileSort.php",
+            data: {path:pathAfterRoot},
+    
+            success: function (response) {
+                return response;
+            },
+            
+        });
+    }
+    else if (sortValue==3){
+        $.ajax({
+            type: "POST",
+            url: "fileSort.php",
+            data: {path:pathAfterRoot},
+    
+            success: function (response) {
+                return response;
+            },
+            
+        });
+    }
+    else{
+        let url = 'index.php?reloadPath='+pathAfterRoot;
+        window.location.assign(url);
+    }
 });
