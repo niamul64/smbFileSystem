@@ -255,7 +255,7 @@ $("#submit_form").on("submit", function(e){ //first method
         let dirExists=parseInt(queryArry[2]);
         let newCreateFile=parseInt(queryArry[3]);
 
-        if (fileExits || dirExists || newCreateFile){
+        if (fileExits){
             // console.log('pass');
            
                 // console.log('pass');

@@ -142,7 +142,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
         }
         $currentPath = rootDir.$nextDir; // total path
     }    
-    
     if ($flag){ // if back Button not pressed, then go inside
         
         $directoryName = $_POST['folderName']; // directory name to making a directory
@@ -170,26 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // if directories of file creating f
                     exit;
                 }
         }
-        if (isset($_FILES['fileToUpload']) && $_FILES["fileToUpload"]["size"] >0 ){ // if a image selected
-            if (file_exists($currentPath.'/'.$_FILES["fileToUpload"]["name"])){
-                $tmp=$_FILES["fileToUpload"]["tmp_name"];
-                
-                ?> 
-               <script> // calling a function to replace or keep both files
-                    uploadFile('<?php echo $tmp; ?>','<?php echo $currentPath; ?>','<?php echo $_FILES["fileToUpload"]["name"];?>','<?php echo $nextDir;?>'  );
-                </script>
-                <?php
-            }
-            else{
-                $tmp=$_FILES["fileToUpload"]["tmp_name"];
-                
-                move_uploaded_file($str,$currentPath.'/'. $_FILES["fileToUpload"]["name"]);
-                header("Location: index.php?reloadPath=".$_POST['path']);
-                exit;
-            }
-           
 
-        }
     }
 }
 
