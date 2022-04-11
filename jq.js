@@ -185,8 +185,6 @@ function deletefile(path,file){
 //////////
 //ajax form post
 function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloadUrl){
-
-
     Swal.fire({
         title: 'Same file exists.',
         text: "If you want to replace the old file with new one then press the 'Replace' button and if you want to keep both files then press 'Keep Both' button",
