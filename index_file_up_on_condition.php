@@ -2,12 +2,48 @@
 define("rootDir","/home/user/Documents/sharef"); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['tmp'])){
+    $newCreatingFile=0;
+    $fileExists=0;
+    $directoryExists=0;
+    $nextDir = $_POST['path']; // grabbing path after root path
+    $currentPath = rootDir.$nextDir;
+    $directoryName = $_POST['folderName']; // directory name to making a directory
+    $fileName = $_POST['fileName']; // file name to make new file
+    $fileExtension = $_POST['fileExtension']; // new file  extension
 
-        $tmp=$_POST['tmp'];
-        $value =move_uploaded_file($tmp,rootDir.$_POST['path'].'/'. $_POST["fileName"]);
-        echo $_POST["path"];
+    if ($directoryName != '') { // if directory name field is not empty
+        if (is_dir($currentPath.'/'.$directoryName)){
+            
+            $directoryExists=1;
+            }else{
+            mkdir($currentPath.'/'.$directoryName);
+        
+        }
     }
+    if (($fileName != '') && ($fileExtension!='') ){ // if file name and extention fields are not empty
+    
+        if (file_exists($currentPath.'/'.$fileName.'.'.$fileExtension)){ // scecking the file alreadddy exists or not
+            
+            $newCreatingFile=1;
+
+            }else{
+                $file_handle = fopen($currentPath.'/'.$fileName.'.'.$fileExtension, 'w'); // creating file, and a file handler
+                fclose($file_handle); // closing the file handler
+
+            }
+    }
+    if (isset($_FILES['fileToUpload']) && $_FILES["fileToUpload"]["size"] >0 ){ // if a image selected
+        if (file_exists($currentPath.'/'.$_FILES["fileToUpload"]["name"])){
+               $fileExists=1;
+        }
+        else{
+            $tmp=$_FILES["fileToUpload"]["tmp_name"];
+            move_uploaded_file($tmp,$currentPath.'/'.$_FILES["fileToUpload"]["name"]);
+        }
+    }
+
+echo $nextDir.'|'.$fileExists.'|'.$directoryExists.'|'.$newCreatingFile;
+    
 }
 
 ?>

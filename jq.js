@@ -181,3 +181,92 @@ function deletefile(path,file){
       })      
 }
 
+
+//////////
+//ajax form post
+function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloadUrl){
+
+
+    Swal.fire({
+        title: 'Same file exits. Select a option:',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Keep Both',
+        denyButtonText: `Replace`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+                $.ajax({
+                type: "POST",
+                url: "indexFileUpKeepBoth.php",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    console.log(response);
+                },
+                }).then(function(response) {
+                    Swal.fire('Saved!', '', 'success').then(function(response) {
+                        let url = 'index.php?reloadPath='+reloadUrl;
+                        window.location.assign(url);
+                    });
+                })
+          
+        } else if (result.isDenied) {
+            $.ajax({
+                type: "POST",
+                url: "index_up_replace.php",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    console.log(response);
+                },
+                }).then(function(response) {
+                    Swal.fire('Changes are not saved', '', 'info').then(function(response) {
+                        let url = 'index.php?reloadPath='+reloadUrl;
+                        window.location.assign(url);
+                    });
+                })
+          
+        }
+      })
+}
+
+
+$("#submit_form").on("submit", function(e){ //first method
+    e.preventDefault();
+    let reloadUrl='';
+    var formData = new FormData(this);
+    $.ajax({
+        type: "POST",
+        url: "index_file_up_on_condition.php",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            return response;
+        },
+        
+    }).then(function(response) {
+        let queryArry = response.split("|");
+        reloadUrl=queryArry[0];
+        let fileExits=parseInt(queryArry[1]);
+        let dirExists=parseInt(queryArry[2]);
+        let newCreateFile=parseInt(queryArry[3]);
+
+        if (fileExits || dirExists || newCreateFile){
+            // console.log('pass');
+           
+                // console.log('pass');
+            keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloadUrl);
+        }
+        else{
+            let url = 'index.php?reloadPath='+reloadUrl;
+            window.location.assign(url);
+        }
+
+    });
+
+})
+

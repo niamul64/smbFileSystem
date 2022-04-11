@@ -218,7 +218,7 @@ function createForm(){
 
 <!-- form start -->
 <div class="border p-1 container-xl">
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
+            <form id="submit_form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
                 <p class="p-1 d-flex justify-content-center bg-white text-dark">Create Directory/File Or Upload A File in The Current Path</p>
                 <div class="row m-1 ">
                     <div class="col-sm-7 border">
