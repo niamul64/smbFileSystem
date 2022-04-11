@@ -228,7 +228,6 @@ function keepBothOrReplaceFile(formData,fileExits,dirExists, newCreateFile,reloa
                         window.location.assign(url);
                     });
                 })
-          
         }
       })
 }
