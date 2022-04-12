@@ -1,10 +1,10 @@
 <?php
 define("rootDir","/home/user/Documents/sharef"); 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (isset($_POST ['path'])){ // if the user clicks on the directory to go insidde 
-        $nextDir = $_POST['path']; // grabbing path after root with the folder name which jus clicked
+
+
+        $nextDir = '/abc2'; // grabbing path after root with the folder name which jus clicked
         
         $arrayToKeppFolderWithTime= [];
 
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // }
         }
         echo ($filesAndDir[2]);
-    }
 
-}
+
+
 ?>
