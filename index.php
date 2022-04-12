@@ -285,8 +285,8 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                         <div class="row justify-content-md-center bg-white text-dark" >
                             <select id="select2" class="col-lg-5" >
                                 <option value="1">Sort By Alphabetical Order</option>
-                                <option value="2">Sort By Creation Date</option>
-                                <option value="2">Sort By File Size</option>
+                                <option value="2">Sort By Creation Time</option>
+                                <option value="3">Sort By File Size</option>
                             </select>
                         </div>
                     </div>
@@ -297,11 +297,11 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
 <!-- files card start -->
                     <div class="container-fluid">
-                        <div class="row justify-content-md-center">
+                        <div id='filePrintUnderThisTag' class="row justify-content-md-center">
 
                         <?php
                         foreach ($onlyFiles as $eachFile){ // loop to show all files, not directories 
-                            $fileCountIndex += 1;
+                          
        
                         ?> 
                         <!-- each file start -->
