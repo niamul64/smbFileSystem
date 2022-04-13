@@ -30,6 +30,40 @@ $( "#dirPrintUnderThisTag" ).hover(function() { // hover on Directories/Folders
         });
 });
 
+$( "#filePrintUnderThisTag" ).hover(function() { // hover on file cards
+
+    $( ".fileShowCard" ).click(function() { // select or unselect a file card 
+            if ($(this).hasClass('selected')){
+                $(this).removeClass("selected");
+                selectCount -=1;
+                console.log(selectCount)
+            }
+            else{
+                selectCount +=1;
+                console.log(selectCount)
+                $(this).addClass("selected");
+            }
+        },
+    ),
+    $( ".deleteFile" ).hover(function() { // function Execute if hover over
+        $(this).addClass("bg-danger");
+    
+        },
+        function(){
+            $(this).removeClass("bg-danger"); // function Execute if not hovering over
+        }
+    ),
+    
+    $( ".downloadFile" ).hover(function() { // function Execute if hover over
+        $(this).addClass("bg-info");
+        },
+        function(){
+            $(this).removeClass("bg-info"); // function Execute if not hovering over
+        }
+    );
+
+});
+
 $( "#backButton" ).hover(function() { // function Execute if hover over back button
     $("#backButton").removeClass("btn-dark");
     $("#backButton").addClass("btn-success");
@@ -71,33 +105,6 @@ $( "#submitForm" ).hover(function() { // function Execute if hover over
 );
 
 
-
-
-function selectFolder(element){ // function Execute if hover over
-    if ($(element).hasClass('bg-info')){
-        $(element).removeClass("bg-info");
-    }
-    else{
-        $(element).addClass("bg-info");
-    }
-}
-
-$( ".fileShowCard" ).click(function() { // select or unselect a file card 
-        if ($(this).hasClass('selected')){
-            $(this).removeClass("selected");
-            selectCount -=1;
-            console.log(selectCount)
-        }
-        else{
-            selectCount +=1;
-            console.log(selectCount)
-            $(this).addClass("selected");
-        }
-    },
-);
-
-
-
 $( "#gotoHome" ).hover(function() { // function Execute if hover over
     $(this).addClass("bg-warning");
     $(this).removeClass("bg-info");
@@ -107,24 +114,6 @@ $( "#gotoHome" ).hover(function() { // function Execute if hover over
         $(this).addClass("bg-info");
     }
 );
-
-$( ".deleteFile" ).hover(function() { // function Execute if hover over
-    $(this).addClass("bg-danger");
-
-    },
-    function(){
-        $(this).removeClass("bg-danger"); // function Execute if not hovering over
-    }
-);
-
-$( ".downloadFile" ).hover(function() { // function Execute if hover over
-    $(this).addClass("bg-info");
-    },
-    function(){
-        $(this).removeClass("bg-info"); // function Execute if not hovering over
-    }
-);
-
 
 
 
