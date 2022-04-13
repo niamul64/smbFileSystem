@@ -279,23 +279,21 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
 <!-- file show start -->
                 <div class="col-sm-8">
-
-
-
+                    
                     <p class="pt-1 d-flex justify-content-center bg-white text-dark">All files in the current path</p>
 
 <!-- select sorting option for files -->
                     <div class="container-fluid" > 
                         <div class="row justify-content-md-center bg-white text-dark" >
                             <!-- button group for mark, unmark, delete, download files -->
-                            <div class="col-lg-6 btn-group " role="group" aria-label="Basic example">
+                            <div class="mb-1 mt-1 col-lg-7 btn-group " role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-secondary">Mark All</button>
                                 <button type="button" class="btn btn-secondary">Unmark All</button>
                                 <button type="button" class="btn btn-secondary">Download</button>
                                 <button type="button" class="btn btn-secondary">Delete</button>
                             </div>
 
-                            <select id="select2" class="col-lg-5" >
+                            <select id="select2" class="col-lg-5 mb-1 mt-1" >
                                 <option value="1">Sort By Alphabetical Order</option>
                                 <option value="2">Sort By Creation Time</option>
                                 <option value="3">Sort By File Size</option>
