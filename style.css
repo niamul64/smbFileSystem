@@ -8,6 +8,7 @@ a{
     
 }
 
+/* if the file card selected the apply this style */
 .selected{
     background-color: #d7eff2;
     box-shadow: 5px 5px 9px 1px rgba(0, 0, 20, 0.3);
