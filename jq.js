@@ -1,9 +1,9 @@
 let currentPathText = document.querySelector('#currentPath');
 
 
+var selectCount=0;
 
-
-window.onload = function funLoad() { 
+window.onload = function funLoad() {  // onload the index.php page
     let path= currentPathText.textContent; // grabing the text inside the path
     let backButton = document.querySelector('#backButton'); // back button element grabbing
     if (path.length==5){
@@ -11,16 +11,32 @@ window.onload = function funLoad() {
     }else{
         backButton.style.display = 'block'; // if not root directory then show 
     }
-} 
+}; 
 
+$( "#dirPrintUnderThisTag" ).hover(function() { // hover on Directories/Folders
+    $( ".folderDelete" ).hover(function() { // function Execute if hover over delete button
+        $(this).addClass("bg-warning");
+        $(this).removeClass("bg-info");
+        },
+        function(){                         // function Execute if not hovering over delete button
+            $(this).removeClass("bg-warning"); 
+            $(this).addClass("bg-info");
+        }),
+    $( ".folderId" ).hover(function() { // function Execute if hover over folder name
+        $(this).addClass("bg-info");
+        },
+        function(){                     // function Execute if not hovering over folder name
+            $(this).removeClass("bg-info"); 
+        });
+});
 
-$( "#backButton" ).hover(function() { // function Execute if hover over
+$( "#backButton" ).hover(function() { // function Execute if hover over back button
     $("#backButton").removeClass("btn-dark");
     $("#backButton").addClass("btn-success");
     },
-    function(){
+    function(){                        // function Execute if not hovering over
         $("#backButton").removeClass("btn-success");
-        $("#backButton").addClass("btn-dark"); // function Execute if not hovering over
+        $("#backButton").addClass("btn-dark"); 
     }
 );
 
@@ -55,21 +71,31 @@ $( "#submitForm" ).hover(function() { // function Execute if hover over
 );
 
 
-$( ".folderId" ).hover(function() { // function Execute if hover over
-    $(this).addClass("bg-info");
-    },
-    function(){
-        $(this).removeClass("bg-info"); // function Execute if not hovering over
+
+
+function selectFolder(element){ // function Execute if hover over
+    if ($(element).hasClass('bg-info')){
+        $(element).removeClass("bg-info");
     }
+    else{
+        $(element).addClass("bg-info");
+    }
+}
+
+$( ".fileShowCard" ).click(function() { // select or unselect a file card 
+        if ($(this).hasClass('selected')){
+            $(this).removeClass("selected");
+            selectCount -=1;
+            console.log(selectCount)
+        }
+        else{
+            selectCount +=1;
+            console.log(selectCount)
+            $(this).addClass("selected");
+        }
+    },
 );
 
-$( ".folderId" ).hover(function() { // function Execute if hover over
-    $(this).addClass("bg-info");
-    },
-    function(){
-        $(this).removeClass("bg-info"); // function Execute if not hovering over
-    }
-);
 
 
 $( "#gotoHome" ).hover(function() { // function Execute if hover over
@@ -100,15 +126,7 @@ $( ".downloadFile" ).hover(function() { // function Execute if hover over
 );
 
 
-$( ".folderDelete" ).hover(function() { // function Execute if hover over
-    $(this).addClass("bg-warning");
-    $(this).removeClass("bg-info");
-    },
-    function(){
-        $(this).removeClass("bg-warning"); // function Execute if not hovering over
-        $(this).addClass("bg-info");
-    }
-);
+
 
 // function deleteDir(path,folder){
 //     if (confirm(`Are you sure: Delete " ${folder} " folder?`)){
@@ -360,6 +378,7 @@ $('#select1').on('change', function() { // folder sort
             success: function (response) {
                 // console.log(response);
                 $("#dirPrintUnderThisTag").html(response);
+               
             },
         });
     }else{
@@ -391,6 +410,7 @@ $('#select2').on('change', function() { // file sort
     
             success: function (response) {
                 $("#filePrintUnderThisTag").html(response);
+                
             },
             
         });

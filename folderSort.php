@@ -1,4 +1,6 @@
+
 <?php
+
 define("rootDir","/home/user/Documents/sharef"); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -32,7 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- each row -->
                 
             <?php
-        }        
+        }
+   
     }
 }
 ?>
+
