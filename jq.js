@@ -30,7 +30,7 @@ $( "#dirPrintUnderThisTag" ).hover(function() { // hover on Directories/Folders
         });
 }); // hover on Directories/Folders End
 
-$( "#filePrintUnderThisTag" ).hover(function() { // hover on file cards
+$( "#fileCardJsTriger" ).hover(function() { // hover on file cards
 
     $( ".fileShowCard" ).click(function() { // select or unselect a file card 
             if ($(this).hasClass('selected')){

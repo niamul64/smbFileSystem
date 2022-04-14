@@ -278,7 +278,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 <!-- folder show end -->
 
 <!-- file show start -->
-                <div class="col-sm-8">
+                <div class="col-sm-8 " id='fileCardJsTriger'>
                     
                     <p class="pt-1 d-flex justify-content-center bg-white text-dark">All files in the current path</p>
 

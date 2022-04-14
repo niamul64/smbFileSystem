@@ -1,23 +1,18 @@
 <?php
-define("rootDir","/home/user/Documents/sharef"); 
+define("rootDir","smb://192.168.0.109/public%20files"); 
 
 
 
 
-        $nextDir = '/abc2'; // grabbing path after root with the folder name which jus clicked
+       // grabbing path after root with the folder name which jus clicked
         
-        $arrayToKeppFolderWithTime= [];
+    
 
         // scan all files and DirS and file 
-        $filesAndDir = scandir(rootDir.$nextDir); // grabing all files in the directory
-        $filesAndDir = array_diff($files,array('.','..')); // removing extra dots
-        // scan all files and DirS
-        foreach ($filesAndDir as $eachDir){ 
-            // if (is_dir(rootDir.$nextDir.'/'.$eachDir )){
-                
-            // }
-        }
-        echo ($filesAndDir[2]);
+        $filesAndDir = scandir("smb://192.168.0.109/public%20files"); // grabing all files in the directory
+        
+echo "hi";
+print_r($filesAndDir);
 
 
 
