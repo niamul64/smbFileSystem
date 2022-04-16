@@ -64,6 +64,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
             }
         });
     }),
+
     $( "#unmarkAll" ).click(function() { // function Execute if clicked on unmark all button
         $('.fileShowCard').each((index, element) => {
             if ($(element).hasClass('selected')) // looping through all the file cards
@@ -71,6 +72,39 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                 $(element).removeClass("selected");// unselecting file card
             }
         });
+    }),
+
+    $( "#deleteAllSelectedfiles" ).click(function() { // function Execute if clicked on delete button at button group
+        var numOfISelectedItems = $('.selected').length;
+        if (numOfISelectedItems) // looping through all the file cards
+        {
+            Swal.fire({
+                title: `Are You sure?`,
+                text: "Will Delete all the selected files.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+              }).then((result) => {
+                if (result.isConfirmed) {       // if connfirmed
+                    let currentPath= $("#currentPath").text(); // current directory path
+                    let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
+                    $('.selected').each((index, element) => {
+                        let file=$(element).children().first().children().first().text();
+
+                        $.ajax({                        //AJAX request
+                            url: "index.php",           // Get request
+                            data: {deletePath: pathAfterRoot ,fileName:file},
+                            success: function (response) {
+                                    $(element).remove();
+                                }
+                        });
+                    });
+                }
+              }) 
+        }
+
     }),
 
     $( ".deleteFile" ).hover(function() { // function Execute if hover over on delete icon on file card
@@ -297,8 +331,6 @@ function keepBothOrReplaceFile(formData, reloadUrl){
                     console.log(response);
                 },
                 }).then(function(response) {
-
-
                     Swal.fire('File replaced','','success').then(function(response) {
                         let url = 'index.php?reloadPath='+reloadUrl;
                         window.location.assign(url);
