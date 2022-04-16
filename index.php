@@ -287,10 +287,10 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                         <div class="row justify-content-md-center bg-white text-dark" >
                             <!-- button group for mark, unmark, delete, download files -->
                             <div class="mb-1 mt-1 col-lg-7 btn-group " role="group" aria-label="Basic example">
-                                <button  type="button" class="btn btn-secondary">Mark All</button>
-                                <button type="button" class="btn btn-secondary">Unmark All</button>
-                                <button type="button" class="btn btn-secondary">Download</button>
-                                <button type="button" class="btn btn-secondary">Delete</button>
+                                <button id="markAll" type="button" class="btn btn-secondary">Mark All</button>
+                                <button id="unmarkAll" type="button" class="btn btn-secondary">Unmark All</button>
+                                <button id="downloadAllSelectedFlle" type="button" class="btn btn-secondary">Download</button>
+                                <button id="deleteAllSelectedfiles" type="button" class="btn btn-secondary">Delete</button>
                             </div>
 
                             <select id="select2" class="col-lg-5 mb-1 mt-1" >
