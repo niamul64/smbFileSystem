@@ -213,7 +213,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
     $onlyFiles= array(); // array to keep all files only, no directory.
 ?>
 <!-- main body start -->
-        <div class="container mt-1 mb-6"> 
+        <div class="container mt-1 mb-5"> 
             <div class="row">
 <!-- folder show start -->               
                 <div class="col-sm-4 border  border-5">
@@ -287,7 +287,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                         <div class="row justify-content-md-center bg-white text-dark" >
                             <!-- button group for mark, unmark, delete, download files -->
                             <div class="mb-1 mt-1 col-lg-7 btn-group " role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary">Mark All</button>
+                                <button  type="button" class="btn btn-secondary">Mark All</button>
                                 <button type="button" class="btn btn-secondary">Unmark All</button>
                                 <button type="button" class="btn btn-secondary">Download</button>
                                 <button type="button" class="btn btn-secondary">Delete</button>
