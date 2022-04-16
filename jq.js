@@ -40,7 +40,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                 $(this).parent().parent().addClass("selected"); // select a file card 
             }
         },
-    ),
+    );
     
 
     // $( ".fileShowCard" ).click(function() { // select or unselect a file card 
@@ -56,6 +56,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
     //         }
     //     },
     // ),
+
     $( "#markAll" ).click(function() { // function Execute if clicked on mark all button
         $('.fileShowCard').each((index, element) => {
             if (!($(element).hasClass('selected'))) // looping through all the file cards
