@@ -314,7 +314,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                         <!-- each file start -->
                             <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" > 
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $eachFile; ?></h5>
+                                    <h5 class="card-title cardTitleSelect"><?php echo $eachFile; ?></h5>
                                     
                                     <?php
                                     $fileSize=filesize($currentPath.'/'.$eachFile);

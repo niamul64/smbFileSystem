@@ -1,8 +1,5 @@
 let currentPathText = document.querySelector('#currentPath');
 
-
-var selectCount=0;
-
 window.onload = function funLoad() {  // onload the index.php page
     let path= currentPathText.textContent; // grabing the text inside the path
     let backButton = document.querySelector('#backButton'); // back button element grabbing
@@ -32,19 +29,16 @@ $( "#dirPrintUnderThisTag" ).hover(function() { // hover on Directories/Folders
 
 $( "#fileCardJsTriger" ).hover(function() { // hover on file cards
 
-    $( ".fileShowCard" ).click(function() { // select or unselect a file card 
-            if ($(this).hasClass('selected')){
-                $(this).removeClass("selected");
-                selectCount -=1;
-                console.log(selectCount)
+    $( ".cardTitleSelect" ).click(function() { // select or unselect a file card 
+            if ($(this).parent().parent().hasClass('selected')){
+                $(this).parent().parent().removeClass("selected");// unselect a file card 
             }
             else{
-                selectCount +=1;
-                console.log(selectCount)
-                $(this).addClass("selected");
+                $(this).parent().parent().addClass("selected"); // select a file card 
             }
         },
     ),
+    
     $( ".deleteFile" ).hover(function() { // function Execute if hover over on delete icon on file card
         $(this).addClass("bg-danger");
     
