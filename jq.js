@@ -41,6 +41,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
             }
         },
     ),
+    
 
     // $( ".fileShowCard" ).click(function() { // select or unselect a file card 
     //         if ($(this).hasClass('selected')){
@@ -55,6 +56,22 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
     //         }
     //     },
     // ),
+    $( "#markAll" ).click(function() { // function Execute if clicked on mark all button
+        $('.fileShowCard').each((index, element) => {
+            if (!($(element).hasClass('selected'))) // looping through all the file cards
+            {
+                $(element).addClass("selected"); // selecting file card
+            }
+        });
+    }),
+    $( "#unmarkAll" ).click(function() { // function Execute if clicked on unmark all button
+        $('.fileShowCard').each((index, element) => {
+            if ($(element).hasClass('selected')) // looping through all the file cards
+            {
+                $(element).removeClass("selected");// unselecting file card
+            }
+        });
+    }),
 
     $( ".deleteFile" ).hover(function() { // function Execute if hover over on delete icon on file card
         $(this).addClass("bg-danger");
