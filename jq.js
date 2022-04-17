@@ -159,26 +159,43 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
     );
 }); // hover on file cards end
 
-function renameFile($currentDir,$oldFileName){ // onclick the rename file icon this function will Execute
-    console.log($currentDir,$oldFileName);
-    (async () => {
-
-        const { value: email } = await Swal.fire({
-          title: 'Input email address',
-          input: 'email',
-          inputLabel: 'Your email address',
+function renameFile(currentDir,oldFileName){ // onclick the rename file icon this function will Execute
+    console.log(currentDir,oldFileName);
+    (async () => { // will take user input for new name file name
+        const { value: text } = await Swal.fire({
+          title: `Rename: ${oldFileName}`,
+          input: 'text',
+          inputLabel: 'Enter new name for the file, with extention',
           inputPlaceholder: 'Enter your email address'
         })
         
-        if (email) {
-          Swal.fire(`Entered email: ${email}`)
+        if (text) { // grab the user input in 'text'
+
+            $.ajax({                        //AJAX request
+                url: "fileRename.php",           // Get request
+                data: {path: currentDir, oldName: oldFileName, newName: text},
+                success: function (response) {
+                        if (response=='error'){
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops. rename unsuccessful',
+                                text: 'please choose another name for the file',
+                            }).then(function() { // reload 
+                                location.reload();
+                            });    
+                        }
+                        else{
+                            location.reload();
+                        }
+                        
+                    }
+            });
+
         }
         else{
             location.reload();
         }
-        
-        })()
-
+    })()
 }
 
 $( "#backButton" ).hover(function() { // function Execute if hover over back button
