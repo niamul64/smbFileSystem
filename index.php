@@ -305,11 +305,11 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                     <div class="container-fluid" > 
                         <div class="row justify-content-md-center bg-white text-dark" >
                             <!-- button group for mark, unmark, delete, download files -->
-                            <div class="mb-1 mt-1 col-lg-7 btn-group " role="group" aria-label="Basic example">
-                                <button id="markAll" type="button" class="btn btn-secondary">Mark All</button>
-                                <button id="unmarkAll" type="button" class="btn btn-secondary">Unmark All</button>
-                                <button id="downloadAllSelectedFlle" type="button" class="btn btn-secondary">Download</button>
-                                <button id="deleteAllSelectedfiles" type="button" class="btn btn-secondary">Delete</button>
+                            <div class="mb-1 mt-1 col-lg-7  ">
+                                <button id="markAll" type="button" class="">Mark All</button>
+                                <button id="unmarkAll" type="button" class="">Unmark All</button>
+                                <button id="downloadAllSelectedFlle" type="button" class="">Download</button>
+                                <button id="deleteAllSelectedfiles" type="button" class="">Delete</button>
                             </div>
 
                             <select id="select2" class="col-lg-5 mb-1 mt-1" >
@@ -328,8 +328,9 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 <div id='loadingIcon' class="text-center m-5 d-none"> 
                             Please Wait..
                             <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                                <span class="visually-hidden lodingWidth">Loading...</span>
                             </div>
+                            Processing files to download 
                         </div>
 <!-- loding icon show  -->
 
