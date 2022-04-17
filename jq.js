@@ -40,7 +40,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                 $(this).parent().parent().addClass("selected"); // select a file card 
             }
         },
-    );
+    ),
     
 
     // $( ".fileShowCard" ).click(function() { // select or unselect a file card 
@@ -103,7 +103,37 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                         });
                     });
                 }
+                else{
+                    let currentPath= $("#currentPath").text(); // current directory path
+                    let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
+                    let url = 'index.php?reloadPath='+pathAfterRoot;
+                            window.location.assign(url);
+                }
               }) 
+        }
+
+    }),
+
+    $( "#downloadAllSelectedFlle" ).click(function() { // function Execute if clicked on delete button at button group
+        var numOfISelectedItems = $('.selected').length;
+        if (numOfISelectedItems) // looping through all the file cards
+        {
+            let currentPath= $("#currentPath").text(); // current directory path
+            let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
+            let files=[];
+            $('.selected').each((index, element) => {
+                files.push($(element).children().first().children().first().text());
+            });
+            console.log(files);
+            $.ajax({                        //AJAX request
+                url: "multipleFileDownload.php",           // Get request
+                data: {downloadPath: pathAfterRoot ,fileNames:files},
+                success: function (response) {
+                    let url = 'index.php?pathAfterRootFromMultiDownload='+pathAfterRoot;
+                    window.location.assign(url);                
+                    }
+            });
+
         }
 
     }),
@@ -194,6 +224,10 @@ function deleteDir(path,folder){ // 'on click' applied on index.php by passing t
                 }
         });
         }
+        else{
+            let url = 'index.php?reloadPath='+path;
+                    window.location.assign(url);
+        }
       })   
 }
 // delete dir end
@@ -225,6 +259,10 @@ function deletefile(path,file){ // 'on click' applied on index.php by passing th
                 });
                 }
         });
+        }
+        else{
+            let url = 'index.php?reloadPath='+path;
+                    window.location.assign(url);
         }
       })      
 }

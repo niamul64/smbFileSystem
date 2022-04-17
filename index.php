@@ -65,6 +65,25 @@ if (isset($_GET ['reloadPath'])){
 
 
 <?php
+// download zip file foe multifile download (temporary)
+if (isset($_GET ['pathAfterRootFromMultiDownload'])){ 
+    global $nextDir;
+    $nextDir = $_GET['pathAfterRootFromMultiDownload']; // grabbing path after root with the folder name which jus clicked 
+    $currentPath = rootDir.$nextDir; // making the full path
+
+    $zipFileUrl="/home/user/Documents".'/'."zipFile.zip";
+
+    if (file_exists($zipFileUrl)){// checking: if file exists
+        header('Content-Type: application/octet-stream');
+        header("Content-Transfer-Encoding: Binary"); 
+        header("Content-disposition: attachment; filename=\"" . basename($zipFileUrl) . "\""); 
+        readfile($zipFileUrl); 
+    }
+}
+// download zip file foe multifile download (temporary) End.
+?>
+
+<?php
 //all get/post request
 
 if (isset($_GET ['go'])){ // if the user clicks on the directory to go insidde 
