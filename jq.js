@@ -115,6 +115,8 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
         var numOfISelectedItems = $('.selected').length;
         if (numOfISelectedItems) // looping through all the file cards
         {
+            $("#loadingIcon").toggleClass('d-none');
+            $("#filePrintUnderThisTag").toggleClass('d-none');
             let currentPath= $("#currentPath").text(); // current directory path
             let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
             let files=[];
@@ -126,6 +128,8 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                 url: "multipleFileDownload.php",           // Get request
                 data: {downloadPath: pathAfterRoot ,fileNames:files},
                 success: function (response) {
+                    $("#loadingIcon").toggleClass('d-none');
+                    $("#filePrintUnderThisTag").toggleClass('d-none');
                     let url = 'index.php?pathAfterRootFromMultiDownload='+pathAfterRoot;
                     window.location.assign(url);                
                     }

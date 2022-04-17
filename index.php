@@ -323,6 +323,16 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
 <!-- files card start -->
                     <div class="container-fluid">
+
+<!-- loding icon show  -->
+<div id='loadingIcon' class="text-center m-5 d-none"> 
+                            Please Wait..
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+<!-- loding icon show  -->
+
                         <div id='filePrintUnderThisTag' class="row justify-content-md-center">
 
                         <?php
