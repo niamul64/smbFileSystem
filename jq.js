@@ -104,10 +104,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                     });
                 }
                 else{
-                    let currentPath= $("#currentPath").text(); // current directory path
-                    let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
-                    let url = 'index.php?reloadPath='+pathAfterRoot;
-                            window.location.assign(url);
+                    location.reload();
                 }
               }) 
         }
