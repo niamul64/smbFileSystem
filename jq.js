@@ -139,6 +139,8 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
 
     }),
 
+   
+
     $( ".deleteFile" ).hover(function() { // function Execute if hover over on delete icon on file card
         $(this).addClass("bg-danger");
     
@@ -156,6 +158,28 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
         }
     );
 }); // hover on file cards end
+
+function renameFile($currentDir,$oldFileName){ // onclick the rename file icon this function will Execute
+    console.log($currentDir,$oldFileName);
+    (async () => {
+
+        const { value: email } = await Swal.fire({
+          title: 'Input email address',
+          input: 'email',
+          inputLabel: 'Your email address',
+          inputPlaceholder: 'Enter your email address'
+        })
+        
+        if (email) {
+          Swal.fire(`Entered email: ${email}`)
+        }
+        else{
+            location.reload();
+        }
+        
+        })()
+
+}
 
 $( "#backButton" ).hover(function() { // function Execute if hover over back button
     $("#backButton").removeClass("btn-dark");
