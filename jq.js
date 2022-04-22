@@ -30,18 +30,23 @@ $( "#dirPrintUnderThisTag" ).hover(function() { // hover on Directories/Folders
         });
 }); // hover on Directories/Folders End
 
+
+$("body").on("click", ".cardTitleSelect", function () {// select or unselect a file card 
+    //or we can use $(".checkbox").on("click", function () {}) 
+    $(this).parent().parent().toggleClass("selected");
+}); 
+
 $( "body" ).hover(function() { // hover on file cards (here we can allso use id #fileCardJsTriger)
 
-    $( ".cardTitleSelect" ).click(function() { // select or unselect a file card 
-            if ($(this).parent().parent().hasClass('selected')){
-                $(this).parent().parent().removeClass("selected");// unselect a file card 
-            }
-            else{
-                $(this).parent().parent().addClass("selected"); // select a file card 
-            }
-        },
-    ),
-    
+    // $( ".cardTitleSelect" ).click(function() { // select or unselect a file card 
+    //         if ($(this).parent().parent().hasClass('selected')){
+    //             $(this).parent().parent().removeClass("selected");// unselect a file card 
+    //         }
+    //         else{
+    //             $(this).parent().parent().addClass("selected"); // select a file card 
+    //         }
+    //     },
+    // ),
 
     // $( ".fileShowCard" ).click(function() { // select or unselect a file card 
     //         if ($(this).hasClass('selected')){
