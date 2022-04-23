@@ -80,7 +80,25 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
         });
     }),
 
-    $( "#deleteAllSelectedfiles" ).click(function() { // function Execute if clicked on delete button at button group
+    $( "#searchFile" ).click(function() { // function Execute if clicked on search button at button group
+        
+            (async () => {
+
+                const { value: fileName } = await Swal.fire({
+                  input: 'text',
+                  inputLabel: 'Search',
+                  inputPlaceholder: 'File name',
+                  showCancelButton: true,
+                })
+                if (fileName) {
+                    Swal.fire(`Entered: ${fileName}`)
+                }
+                
+                })()
+    }),
+
+
+    $( "#deleteAllSelectedFiles" ).click(function() { // function Execute if clicked on delete button at button group
         var numOfISelectedItems = $('.selected').length;
         if (numOfISelectedItems) // looping through all the file cards
         {

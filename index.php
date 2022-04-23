@@ -311,7 +311,8 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                                 <button id="markAll" type="button" class="">Mark All</button>
                                 <button id="unmarkAll" type="button" class="">Unmark All</button>
                                 <button id="downloadAllSelectedFlle" type="button" class="">Download</button>
-                                <button id="deleteAllSelectedfiles" type="button" class="">Delete</button>
+                                <button id="deleteAllSelectedFiles" type="button" class="">Delete</button>
+                                <button id="searchFile" type="button" class="">Search</button>
                             </div>
 
                             <select id="select2" class="col-lg-5 mb-1 mt-1" >
