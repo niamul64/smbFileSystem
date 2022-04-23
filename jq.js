@@ -33,8 +33,8 @@ $( "#dirPrintUnderThisTag" ).hover(function() { // hover on Directories/Folders
 
 $("body").on("click", ".cardTitleSelect", function () {// select or unselect a file card 
     //or we can use $(".checkbox").on("click", function () {}) 
-    $(this).parent().parent().toggleClass("selected");
-}); 
+    $(this).parent().parent().toggleClass('selected');
+}), 
 
 $( "body" ).hover(function() { // hover on file cards (here we can allso use id #fileCardJsTriger)
 
@@ -113,7 +113,6 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                 }
               }) 
         }
-
     }),
 
     $( "#downloadAllSelectedFlle" ).click(function() { // function Execute if clicked on delete button at button group
@@ -141,10 +140,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
             });
 
         }
-
     }),
-
-   
 
     $( ".deleteFile" ).hover(function() { // function Execute if hover over on delete icon on file card
         $(this).addClass("bg-danger");
