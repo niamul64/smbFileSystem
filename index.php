@@ -334,12 +334,18 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                     <div class="container-fluid">
 
 <!-- loding icon show  -->
-<div id='loadingIcon' class="text-center m-5 d-none"> 
+                        <div id='loadingIcon' class="text-center m-5 d-none"> 
                             Please Wait..
                             <div class="spinner-border" role="status">
                                 <span class="visually-hidden lodingWidth">Loading...</span>
                             </div>
                             Processing files to download 
+                        </div>
+                        <div id='loadingIconForSearching' class="text-center m-5 d-none"> 
+                            Please Wait..
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden lodingWidth">Searching...</span>
+                            </div>
                         </div>
 <!-- loding icon show  -->
 

@@ -91,9 +91,23 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                   showCancelButton: true,
                 })
                 if (fileName) {
-                    Swal.fire(`Entered: ${fileName}`)
+                    // search on the fileName
+                    // $("#loadingIconForSearching").removeClass('d-none');
+                    // $("#filePrintUnderThisTag").addClass('d-none');
+                    let currentPath= $("#currentPath").text(); // current directory path
+                    let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
+                    $.ajax({                        //AJAX request
+                        type: "POST",
+                        url: "searchFile.php",           // Post request sending to this file
+                        data: {path: pathAfterRoot, fileName:fileName},
+                            success: function (response) {
+                                // $("#loadingIcon").addClass('d-none');
+                                // $("#filePrintUnderThisTag").removeClass('d-none');
+                                $("#filePrintUnderThisTag").html(response); // after searching replace the current files with new search result
+                               
+                            }
+                    });
                 }
-                
             })()
     }),
 
