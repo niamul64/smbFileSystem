@@ -1,6 +1,10 @@
 <?php
-define("rootDir","/home/user/Documents/sharef"); 
+// all include files
 
+include 'rootDir.php';
+?>
+
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $nextDir = $_GET['path']; // grabbing path after root path
     $currentPath = rootDir.$nextDir;

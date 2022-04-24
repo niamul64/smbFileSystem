@@ -1,6 +1,10 @@
 <?php
-define("rootDir","/home/user/Documents/sharef"); 
+// all include files
 
+include 'rootDir.php';
+?>
+
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     $fileExists=0;
@@ -21,5 +25,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 echo $nextDir.'|'.$fileExists;
     
 }
-
 ?>

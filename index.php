@@ -31,10 +31,15 @@
 </head>
 <body>
 <body class="bg-light">
+
+<?php
+// all include files
+
+include 'rootDir.php';
+?>
+
 <?php
 // all global variables
-include 'rootDir.php';
-
 $nextDir=''; // variable to keep the path after root directory
 $currentPath=rootDir; // variable to keep full path
 $messageShow=''; // keep all kind of message to show on alert

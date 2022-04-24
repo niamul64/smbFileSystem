@@ -1,5 +1,10 @@
 <?php
-define("rootDir","/home/user/Documents/sharef"); 
+// all include files
+
+include 'rootDir.php';
+?>
+
+<?php
 $zip_file= "/home/user/Documents".'/'."zipFile.zip"; // zip file creating location
 
 $zip = new ZipArchive(); // zip file obj

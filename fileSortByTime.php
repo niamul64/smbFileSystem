@@ -1,6 +1,10 @@
 <?php
-define("rootDir","/home/user/Documents/sharef"); 
+// all include files
 
+include 'rootDir.php';
+?>
+
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST ['path'])){ // if the user clicks on the directory to go insidde 

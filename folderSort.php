@@ -1,7 +1,10 @@
+<?php
+// all include files
+
+include 'rootDir.php';
+?>
 
 <?php
-
-define("rootDir","/home/user/Documents/sharef"); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
