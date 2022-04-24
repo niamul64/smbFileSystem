@@ -33,7 +33,8 @@
 <body class="bg-light">
 <?php
 // all global variables
-define("rootDir","/home/user/Documents/sharef"); // this is the main directory path that have shared
+include 'rootDir.php';
+
 $nextDir=''; // variable to keep the path after root directory
 $currentPath=rootDir; // variable to keep full path
 $messageShow=''; // keep all kind of message to show on alert

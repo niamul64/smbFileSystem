@@ -126,9 +126,6 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                         });
                     });
                 }
-                else{
-                    location.reload();
-                }
               }) 
         }
     }),
@@ -137,8 +134,8 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
         var numOfISelectedItems = $('.selected').length;
         if (numOfISelectedItems) // looping through all the file cards
         {
-            $("#loadingIcon").toggleClass('d-none');
-            $("#filePrintUnderThisTag").toggleClass('d-none');
+            $("#loadingIcon").removeClass('d-none');
+            $("#filePrintUnderThisTag").addClass('d-none');
             let currentPath= $("#currentPath").text(); // current directory path
             let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
             let files=[];
@@ -150,13 +147,14 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                 url: "multipleFileDownload.php",           // Get request
                 data: {downloadPath: pathAfterRoot ,fileNames:files},
                 success: function (response) {
-                    $("#loadingIcon").toggleClass('d-none');
-                    $("#filePrintUnderThisTag").toggleClass('d-none');
-                    let url = 'index.php?pathAfterRootFromMultiDownload='+pathAfterRoot;
-                    window.location.assign(url);                
+                    $("#loadingIcon").addClass('d-none');
+                    $("#filePrintUnderThisTag").removeClass('d-none');
+                                 
                     }
-            });
-
+            }).then(function() {  // reload 
+                let url = 'index.php?pathAfterRootFromMultiDownload='+pathAfterRoot;
+                window.location.assign(url); 
+                });
         }
     }),
 
@@ -185,7 +183,8 @@ function renameFile(currentDir,oldFileName){ // onclick the rename file icon thi
           title: `Rename: ${oldFileName}`,
           input: 'text',
           inputLabel: 'Enter new name for the file, with extention',
-          inputPlaceholder: 'Enter your email address'
+          inputPlaceholder: 'Enter your email address',
+          showCancelButton: true
         })
         
         if (text) { // grab the user input in 'text'
@@ -211,9 +210,7 @@ function renameFile(currentDir,oldFileName){ // onclick the rename file icon thi
             });
 
         }
-        else{
-            location.reload();
-        }
+
     })()
 }
 
@@ -285,10 +282,6 @@ function deleteDir(path,folder){ // 'on click' applied on index.php by passing t
                 }
         });
         }
-        else{
-            let url = 'index.php?reloadPath='+path;
-                    window.location.assign(url);
-        }
       })   
 }
 // delete dir end
@@ -321,10 +314,7 @@ function deletefile(path,file){ // 'on click' applied on index.php by passing th
                 }
         });
         }
-        else{
-            let url = 'index.php?reloadPath='+path;
-                    window.location.assign(url);
-        }
+
       })      
 }
 // delete file end
