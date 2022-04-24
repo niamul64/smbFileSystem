@@ -84,7 +84,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
         
             (async () => {
 
-                const { value: fileName } = await Swal.fire({
+                const { value: fileName } = await Swal.fire({ // ask user to input the file name
                   input: 'text',
                   inputLabel: 'Search',
                   inputPlaceholder: 'File name',
@@ -94,7 +94,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                     Swal.fire(`Entered: ${fileName}`)
                 }
                 
-                })()
+            })()
     }),
 
 
