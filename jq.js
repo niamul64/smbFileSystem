@@ -103,6 +103,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                             success: function (response) {
                                 // $("#loadingIcon").addClass('d-none');
                                 // $("#filePrintUnderThisTag").removeClass('d-none');
+                                console.log(response);
                                 $("#filePrintUnderThisTag").html(response); // after searching replace the current files with new search result
                                
                             }
