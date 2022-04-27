@@ -153,7 +153,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
             let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
             let files=[];
             $('.selected').each((index, element) => {
-                files.push($(element).children().first().children().first().text());
+                files.push($(element).data('filename'));
             });
             console.log(files);
             $.ajax({                        //AJAX request
@@ -162,7 +162,6 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                 success: function (response) {
                     $("#loadingIcon").addClass('d-none');
                     $("#filePrintUnderThisTag").removeClass('d-none');
-                                 
                     }
             }).then(function() {  // reload 
                 let url = 'index.php?pathAfterRootFromMultiDownload='+pathAfterRoot;
