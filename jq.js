@@ -128,7 +128,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                     let currentPath= $("#currentPath").text(); // current directory path
                     let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
                     $('.selected').each((index, element) => {
-                        let file=$(element).children().first().children().first().text();
+                        let file=$(element).data('filename');
 
                         $.ajax({                        //AJAX request
                             url: "index.php",           // Get request

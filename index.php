@@ -79,7 +79,7 @@ if (isset($_GET ['pathAfterRootFromMultiDownload'])){
     $nextDir = $_GET['pathAfterRootFromMultiDownload']; // grabbing path after root with the folder name which jus clicked 
     $currentPath = rootDir.$nextDir; // making the full path
 
-    $zipFileUrl="/home/user/Documents".'/'."zipFile.zip";
+    $zipFileUrl=zipForMultiDownload.'/'."zipFile.zip";
 
     if (file_exists($zipFileUrl)){// checking: if file exists
         header('Content-Type: application/octet-stream');
@@ -357,7 +357,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
        
                         ?> 
                         <!-- each file start -->
-                            <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" > 
+                            <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" data-filename='<?php echo $eachFile; ?>'> 
                                 <div class="card-body">
                                     <h5 class="card-title cardTitleSelect"><?php echo $eachFile; ?></h5>
                                     
