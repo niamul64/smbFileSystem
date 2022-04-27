@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- each file start -->
     <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" > 
                         
-                    <div class="badge badge-primary text-wrap text-dark" >
+                    <div class="badge badge-primary text-wrap text-dark col-12" >
                     Path:Root<?php  echo $folderPath;?>
                     </div>
                                     <div class="card-body">
@@ -106,8 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <?php
     if (count($relativeMatch)>0){
-        echo '<h4>Relative match:</h4>';
-        
+
+        echo '<h5>Relative match:</h5>';
         foreach ($relativeMatch as $eachFile){ // making each file as a card
             $tempParhAfterRoot= substr($eachFile[2], strlen(rootDir)); // remove the root path from file path
             if($tempParhAfterRoot!=$folderPath){
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ?>
              <!-- each file start -->
              <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" > 
-                <div class="Containers-fluid badge badge-primary text-wrap text-dark col-12" >
+                <div class="badge badge-primary text-wrap text-dark col-12" >
                 Path:Root<?php  echo $folderPath;?>
                 </div>
              
