@@ -30,7 +30,6 @@ $( "#dirPrintUnderThisTag" ).hover(function() { // hover on Directories/Folders
         });
 }); // hover on Directories/Folders End
 
-
 $("body").on("click", ".cardTitleSelect", function () {// select or unselect a file card 
     //or we can use $(".checkbox").on("click", function () {}) 
     $(this).parent().parent().toggleClass('selected');
@@ -105,7 +104,6 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                                 // $("#filePrintUnderThisTag").removeClass('d-none');
                                 console.log(response);
                                 $("#filePrintUnderThisTag").html(response); // after searching replace the current files with new search result
-                               
                             }
                     });
                 }
@@ -329,7 +327,6 @@ function deletefile(path,file){ // 'on click' applied on index.php by passing th
                 }
         });
         }
-
       })      
 }
 // delete file end
@@ -347,8 +344,7 @@ $('#select1').on('change', function() { // folder sort
             data: {path:pathAfterRoot},
             success: function (response) {
                 // console.log(response);
-                $("#dirPrintUnderThisTag").html(response);
-               
+                $("#dirPrintUnderThisTag").html(response);      
             },
         });
     }else{
