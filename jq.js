@@ -485,7 +485,6 @@ $("#submit_form").on("submit", function(e){ // submit for folder/file creating
         success: function (response) {
             return response;
         },
-        
     }).then(function(response) {        // grab response
         let queryArry = response.split("|");
         reloadUrl=queryArry[0];         // grab path after root

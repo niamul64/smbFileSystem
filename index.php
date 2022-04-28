@@ -16,7 +16,7 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="jsCssFiles/style.css">
     
     <!-- icons CDN -->
 
@@ -25,7 +25,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="jqForUploadFile.js"></script>
+    
     <title>File Explorer</title>
  
 </head>
@@ -87,6 +87,7 @@ if (isset($_GET ['pathAfterRootFromMultiDownload'])){
         header("Content-disposition: attachment; filename=\"" . basename($zipFileUrl) . "\""); 
         readfile($zipFileUrl); 
     }
+    header('Pragma: no-cache');
 }
 // download zip file foe multifile download (temporary) End.
 ?>
