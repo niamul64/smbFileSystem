@@ -86,8 +86,10 @@ if (isset($_GET ['pathAfterRootFromMultiDownload'])){
         header("Content-Transfer-Encoding: Binary"); 
         header("Content-disposition: attachment; filename=\"" . basename($zipFileUrl) . "\""); 
         readfile($zipFileUrl); 
+        unlink($zipFileUrl);
+        header('Pragma: no-cache');
     }
-    header('Pragma: no-cache');
+    
 }
 // download zip file foe multifile download (temporary) End.
 ?>
