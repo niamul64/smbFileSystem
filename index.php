@@ -85,8 +85,9 @@ if (isset($_GET ['pathAfterRootFromMultiDownload'])){
         header('Content-Type: application/octet-stream');
         header("Content-Transfer-Encoding: Binary"); 
         header("Content-disposition: attachment; filename=\"" . basename($zipFileUrl) . "\""); 
-        readfile($zipFileUrl); 
-        unlink($zipFileUrl);
+        readfile($zipFileUrl);
+        shell_exec('rm -rf ' . $zipFileUrl); 
+        //unlink($zipFileUrl);
         header('Pragma: no-cache');
     }
     
