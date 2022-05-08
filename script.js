@@ -12,7 +12,6 @@ window.onload = function funLoad() {
     }else{
         backButton.style.display = 'block'; // if not root directory then show 
     }
-    
 } 
 
 

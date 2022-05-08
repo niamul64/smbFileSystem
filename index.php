@@ -71,7 +71,6 @@ if (isset($_GET ['reloadPath'])){
 //all get request End
 ?>
 
-
 <?php
 // download zip file foe multifile download (temporary)
 if (isset($_GET ['pathAfterRootFromMultiDownload'])){ 
