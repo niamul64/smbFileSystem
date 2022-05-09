@@ -17,3 +17,7 @@ a{
 .lodingWidth{
     width: 100px;
 }
+
+.verySmallText{
+    font-size: 08px;
+}
