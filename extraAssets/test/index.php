@@ -1,43 +1,27 @@
-<?php
-define("rootDir","/home/user/Documents/sharef"); 
-$zip_file= "/home/user/Documents".'/'."zipFile.zip";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <button id='button'>Sort </button>
+    <br>
+<ul id="sortable">
+  <li class="ui-state-default" data-size="2"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+  <li class="ui-state-default" data-size="1"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+  <li class="ui-state-default" data-size="5"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+  <li class="ui-state-default" data-size="4"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+  <li class="ui-state-default" data-size="7"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+  <li class="ui-state-default" data-size="9"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 9</li>
+  <li class="ui-state-default" data-size="4"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+</ul>
 
-$file1='a.txt';
-$filePath1=rootDir.'/'.$file1;
-$file2='absadsss.txt';
-$filePath2=rootDir.'/'.$file2;
-
-
-
-$zip = new ZipArchive();
-$zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
-
-$zip->addFile($filePath1, $file1);
-$zip->addFile($filePath2, $file2);
-  
-$zip->close();
-
-$zipFileUrl=$zip_file;
-if (file_exists($zipFileUrl)){// checking: if file exists
-    header('Content-Type: application/octet-stream');
-    header("Content-Transfer-Encoding: Binary"); 
-    header("Content-disposition: attachment; filename=\"" . basename($zipFileUrl) . "\""); 
-    readfile($zipFileUrl); 
-    echo "file downloading";
-}
-
-
-
-// $file1='a.txt';
-// $filePath1=rootDir.$file1;
-// $file2='main.txt';
-// $filePath2=rootDir.$file2;
-
-// $zip = new ZipArchive();
-// $zip->open('/home/user/Documents/sharef/', ZipArchive::CREATE | ZipArchive::OVERWRITE);
-    
-// $zip->addFile($filePath1, $file1);
-// $zip->addFile($filePath2, $file2);
-// $zip->close();
-// var_dump($zip["numFiles"]);
-?>
+<script src="scriptTest.js"></script>
+<!-- <script src="extraAssets/test/scriptTest.js"></script> -->
+</body>
+</html>
