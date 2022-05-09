@@ -323,7 +323,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
                             <select id="select2" class="col-lg-5 mb-1 mt-1" >
                                 <option value="1">Sort By Alphabetical Order</option>
-                                <option value="2">Sort By Creation Time</option>
+                                <option value="2">Sort By Modified Time</option>
                                 <option value="3">Sort By File Size</option>
                             </select>
                         </div>
@@ -353,12 +353,13 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
                         <?php
                         foreach ($onlyFiles as $eachFile){ // loop to show all files, not directories 
-                            $fileSize=filesize($currentPath.'/'.$eachFile); // each file size
-                            $fileSize=$fileSize/1000000; // each file size in mb
+                            $fileSize = filesize($currentPath.'/'.$eachFile); // each file size
+                            $fileSizeInKB = $fileSize;
+                            $fileSize = $fileSize/1000000; // each file size in mb
+                            $timeDate = date (filemtime(rootDir.$nextDir.'/'.$eachFile));
                         ?> 
-
                         <!-- each file start -->
-                            <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" data-filename='<?php echo $eachFile; ?>'> 
+                            <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" data-filename='<?php echo $eachFile; ?>' data-fileSize='<?php echo $fileSizeInKB; ?>' data-timeDate='<?php echo $timeDate; ?>'> 
                             <!-- <div class="card-body">     -->
                             <div class="p-1">
                                     <p class="fontBold cardTitleSelect"><?php echo $eachFile; ?></p>
@@ -366,7 +367,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                                     <p class="card-subtitle mb-2 text-muted cardTitleSelect"><?php  echo number_format($fileSize,2,'.','').'MB';?></p>
                                     
                                     <p class="">
-                                        LastEdit:2/5/2022
+                                        LastEdit:<?php echo (date ("d/M/Y.",filemtime(rootDir.$nextDir.'/'.$eachFile)))?>
                                     </p>
 
                                     <a class="deleteFile card-link text-dark " onclick="deletefile('<?php echo $nextDir; ?>','<?php echo $eachFile; ?>' )"> 
@@ -396,7 +397,6 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                         </div>
                     </div>
 <!-- files card ends -->
-
 
                 </div>
 <!-- file show start -->
