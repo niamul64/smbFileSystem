@@ -18,10 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // scan all files and DirS
         foreach ($filesAndDir as $eachFile){ 
             if (is_dir(rootDir.$nextDir.'/'.$eachFile )){ // if not dir
-                continue;
-             
+                continue; 
             }else{
-                $timeDate= date (filemtime(rootDir.$nextDir.'/'.$eachFile));
+                $timeDate = date (filemtime(rootDir.$nextDir.'/'.$eachFile));
                 array_push($arrayToKeepFileWithSize,array($timeDate,$eachFile));  
             }
         }

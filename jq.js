@@ -353,41 +353,41 @@ $('#select1').on('change', function() { // folder sort
 });
 // sorting option for directories sort end
 
-// sorting option for files sort
-$('#select2').on('change', function() { // file sort 
-    let sortValue= this.value;
-    let currentPath= $("#currentPath").text();
-    let pathAfterRoot=currentPath.substring(5, );
-    console.log(this.value);
-    if (sortValue==2){
-        $.ajax({
-            type: "POST",
-            url: "fileSortByTime.php",
-            data: {path:pathAfterRoot},
-            success: function (response) {
-                $("#filePrintUnderThisTag").html(response);
-            },
-        });
-    }
-    else if (sortValue==3){
-        $.ajax({
-            type: "POST",
-            url: "fileSortBySize.php",
-            data: {path:pathAfterRoot},
+// // sorting option for files sort
+// $('#select2').on('change', function() { // file sort 
+//     let sortValue= this.value;
+//     let currentPath= $("#currentPath").text();
+//     let pathAfterRoot=currentPath.substring(5, );
+//     console.log(this.value);
+//     if (sortValue==2){
+//         $.ajax({
+//             type: "POST",
+//             url: "fileSortByTime.php",
+//             data: {path:pathAfterRoot},
+//             success: function (response) {
+//                 $("#filePrintUnderThisTag").html(response);
+//             },
+//         });
+//     }
+//     else if (sortValue==3){
+//         $.ajax({
+//             type: "POST",
+//             url: "fileSortBySize.php",
+//             data: {path:pathAfterRoot},
     
-            success: function (response) {
-                $("#filePrintUnderThisTag").html(response);
+//             success: function (response) {
+//                 $("#filePrintUnderThisTag").html(response);
                 
-            },
+//             },
             
-        });
-    }
-    else{
-        let url = 'index.php?reloadPath='+pathAfterRoot;
-        window.location.assign(url);
-    }
-});
-// sorting option for files sort end
+//         });
+//     }
+//     else{
+//         let url = 'index.php?reloadPath='+pathAfterRoot;
+//         window.location.assign(url);
+//     }
+// });
+// // sorting option for files sort end
 
 
 // Ajax form submit post section start
