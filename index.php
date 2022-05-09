@@ -359,7 +359,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                             $timeDate = date (filemtime(rootDir.$nextDir.'/'.$eachFile));
                         ?> 
                         <!-- each file start -->
-                            <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" data-filename='<?php echo $eachFile; ?>' data-fileSize='<?php echo $fileSizeInKB; ?>' data-timeDate='<?php echo $timeDate; ?>'> 
+                            <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" data-filename='<?php echo $eachFile; ?>' data-filesize='<?php echo $fileSizeInKB; ?>' data-timedate='<?php echo $timeDate; ?>'> 
                             <!-- <div class="card-body">     -->
                             <div class="p-1">
                                     <p class="fontBold cardTitleSelect"><?php echo $eachFile; ?></p>

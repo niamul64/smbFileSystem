@@ -4,17 +4,20 @@ $('#select2').on('change', function() { // file sort
     let sortValue= this.value;
     let currentPath= $("#currentPath").text();
     let pathAfterRoot=currentPath.substring(5, );
-    console.log("hi i am from sorting");
     if (sortValue==2){
-        $.ajax({
-            type: "POST",
-            url: "fileSortByTime.php",
-            data: {path:pathAfterRoot},
-            success: function (response) {
-                $("#filePrintUnderThisTag").html(response);
-            },
-        });
+        
+        $(".fileShowCard").sort((a,b) =>
+        {
+            let aElementValue= $(a).data('timedate');
+            let bElementValue= $(b).data('timedate');
+                
+            // console.log($(b));
+            return aElementValue>bElementValue ? 1 : -1;
+        }).appendTo('#filePrintUnderThisTag');
+
+        
     }
+
     else if (sortValue==3){
         $.ajax({
             type: "POST",
@@ -34,3 +37,15 @@ $('#select2').on('change', function() { // file sort
     }
 });
 // sorting option for files sort end
+
+$("#button").click(function() { 
+        
+    let sortedArrayOfElemnt = $("li").sort((a,b) =>
+    {
+        let aElementValue= $(a).data('size');
+        let bElementValue= $(b).data('size');
+        
+        return aElementValue>bElementValue ? 1 : -1;
+    }).appendTo('#sortable');
+}
+);
