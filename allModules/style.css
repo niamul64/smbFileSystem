@@ -21,3 +21,7 @@ a{
 .verySmallText{
     font-size: 08px;
 }
+
+.fontBold{
+    font-weight: bold;
+}

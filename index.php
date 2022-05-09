@@ -359,13 +359,14 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
 
                         <!-- each file start -->
                             <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" data-filename='<?php echo $eachFile; ?>'> 
-                                <div class="card-body">
-                                    <h5 class="card-title cardTitleSelect"><?php echo $eachFile; ?></h5>
+                            <!-- <div class="card-body">     -->
+                            <div class="p-1">
+                                    <p class="fontBold cardTitleSelect"><?php echo $eachFile; ?></p>
                                     
                                     <p class="card-subtitle mb-2 text-muted cardTitleSelect"><?php  echo number_format($fileSize,2,'.','').'MB';?></p>
                                     
-                                    <p class="card-text mb-2 text-muted cardTitleSelect ">
-                                        Last Edit:2/5/2022
+                                    <p class="">
+                                        LastEdit:2/5/2022
                                     </p>
 
                                     <a class="deleteFile card-link text-dark " onclick="deletefile('<?php echo $nextDir; ?>','<?php echo $eachFile; ?>' )"> 
@@ -384,7 +385,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                         </svg>
-                                    </a> 
+                                    </a>
                                 </div>
                             </div>
                             <!-- each file end -->
