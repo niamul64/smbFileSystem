@@ -445,7 +445,6 @@ function printFooter(){
 <?php
 // scan all files and DirS
 function grabFileAndDirectories($path){
-
     $files = scandir($path); // grabing all files in the directory
     $files = array_diff($files,array('.','..')); // removing extra dots
     return array_values($files); // returning a array of all directories and files
