@@ -5,9 +5,7 @@ $("#button").click(function() {
             let aElementValue= $(a).data('size');
             let bElementValue= $(b).data('size');
             
-           return aElementValue>bElementValue ? 1 : -1;
+            return aElementValue>bElementValue ? 1 : -1;
         }).appendTo('#sortable');
-        console.log(sortedArrayOfElemnt);
-        
     }
 );
