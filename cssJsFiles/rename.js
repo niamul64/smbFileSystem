@@ -14,13 +14,11 @@ $( ".renameFile" ).click(function() { // onclick the rename file icon this funct
                 url: "allPhpFiles/fileRename.php",           // Get request
                 data: {path: currentDir, oldName: oldFileName, newName: text},
                 success: function (response) {
-                        if (response=='error'){
+                        if (response.trim()=='error'){
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops. rename unsuccessful',
                                 text: 'please choose another name for the file',
-                            }).then(function() { // reload 
-                                location.reload();
                             });    
                         }
                         else{
