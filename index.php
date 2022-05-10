@@ -290,6 +290,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                             <div class="col-8"> <a class="folderId text-dark" href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " ><?php echo "$fileCountIndex. "; echo $eachFile; ?> </a> </div>
                             <div class="col-4"> <a class="folderDelete bg-info text-dark" onclick="deleteDir('<?php echo $nextDir; ?>','<?php echo $eachFile; ?>' )">Delete</a> </div>
                         </div>
+                    <!-- each row -->
                         
             <?php
                     } 
