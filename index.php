@@ -16,10 +16,8 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="cssJsFiles/style.css">
+    <link rel="stylesheet" href="cssJsFiles/cssStyle.css">
     
-    <!-- icons CDN -->
-
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -27,7 +25,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <title>File Explorer</title>
- 
 </head>
 <body>
 <body class="bg-light">
@@ -280,9 +277,9 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
             foreach ($listOfFilesAndDirectories as $eachFile){
 
             if (is_dir($currentPath.'/'.$eachFile)){
-                $timeDateforDir = date (filemtime($currentPath.'/'.$eachFile));
+                $timeDateforDir = date (filemtime($currentPath.'/'.$eachFile)); // time date grabbing 
 
-                $fileCountIndex += 1;
+                $fileCountIndex += 1; // folder counting
             ?> 
 
                     <!-- each row -->
@@ -367,9 +364,9 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                             <div class="p-1">
                                     <p class="fontBold cardTitleSelect"><?php echo $eachFile; ?></p>
                                     
-                                    <p class="card-subtitle mb-2 text-muted cardTitleSelect"><?php  echo number_format($fileSize,2,'.','').'MB';?></p>
+                                    <p class="verySmallTextSz card-subtitle text-muted cardTitleSelect"><?php  echo number_format($fileSize,2,'.','').'MB';?></p>
                                     
-                                    <p class="">
+                                    <p class="verySmallTextSz cardTitleSelect">
                                         LastEdit:<?php echo (date ("d/M/Y.",filemtime(rootDir.$nextDir.'/'.$eachFile)))?>
                                     </p>
 
@@ -463,6 +460,6 @@ printFooter();
 
 
 <script src="cssJsFiles/sorting.js"></script>
-<script src="javaS.js"></script>
+<script src="javaSc.js"></script>
 </body>
 </html>
