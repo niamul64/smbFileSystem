@@ -136,9 +136,11 @@ if (isset($_GET ['downloadFileName'])){ // if the user clicks on file download b
     $file_url = $currentPath.'/'.$folderNameThatWeWantToDownload;
     // deleting process
     if (file_exists($file_url)){// checking: if file exists
+        header ("Cache-Control: must-revalidate, post-check=0, pre-check=0");
         header('Content-Type: application/octet-stream');
         header("Content-Transfer-Encoding: Binary"); 
-        header("Content-disposition: attachment; filename=\"" . basename($file_url) . "\""); 
+        header("Content-length: ".filesize($file_url));
+        header("Content-disposition: attachment; filename=\"" . basename($folderNameThatWeWantToDownload) . "\""); 
         readfile($file_url); 
     }
 }
