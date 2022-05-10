@@ -19,6 +19,7 @@ if (isset($_GET ['pathAfterRootFromMultiDownload'])){
         shell_exec('rm -rf ' . $zipFileUrl); 
         //unlink($zipFileUrl);
         header('Pragma: no-cache');
+
     }
 }
 // download zip file foe multifile download (temporary) End.
