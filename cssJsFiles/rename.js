@@ -11,7 +11,7 @@ $( ".renameFile" ).click(function() { // onclick the rename file icon this funct
         })
         if (text) { // grab the user input in 'text'
             $.ajax({                        //AJAX request
-                url: "fileRename.php",           // Get request
+                url: "allPhpFiles/fileRename.php",           // Get request
                 data: {path: currentDir, oldName: oldFileName, newName: text},
                 success: function (response) {
                         if (response=='error'){
