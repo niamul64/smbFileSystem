@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     else{
         rename($currentPath.'/'.$oldName,$currentPath.'/'.$newName); // renaming 
         echo 'done';
-    }
-   
+    } 
 }
 ?>

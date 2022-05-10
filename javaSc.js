@@ -164,7 +164,6 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
 }); // hover on file cards end
 
 function renameFile(currentDir,oldFileName){ // onclick the rename file icon this function will Execute
-    console.log(currentDir,oldFileName);
     (async () => { // will take user input for new name file name
         const { value: text } = await Swal.fire({
           title: `Rename: ${oldFileName}`,
