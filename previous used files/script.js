@@ -1,8 +1,5 @@
 let currentPathText = document.querySelector('#currentPath');
 
-
-
-
 window.onload = function funLoad() { 
     let path= currentPathText.textContent; // grabing the text inside the path
     let backButton = document.querySelector('#backButton'); // back button element grabbing

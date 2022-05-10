@@ -16,8 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fileName = $_POST['fileName']; // file name to make new file
     $fileExtension = $_POST['fileExtension']; // new file  extension
 
-    
-   
     if (isset($_FILES['fileToUpload']) && $_FILES["fileToUpload"]["size"] >0 ){ // if a image selected
         if (file_exists($currentPath.'/'.$_FILES["fileToUpload"]["name"])){
             // unlink($currentPath.'/'.$_FILES["fileToUpload"]["name"]);

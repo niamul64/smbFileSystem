@@ -143,32 +143,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
         }
     }),
 
-    $( "#downloadAllSelectedFlle" ).click(function() { // function Execute if clicked on delete button at button group
-        var numOfISelectedItems = $('.selected').length;
-        if (numOfISelectedItems) // looping through all the file cards
-        {
-            $("#loadingIcon").removeClass('d-none');
-            $("#filePrintUnderThisTag").addClass('d-none');
-            let currentPath= $("#currentPath").text(); // current directory path
-            let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
-            let files=[];
-            $('.selected').each((index, element) => {
-                files.push($(element).data('filename'));
-            });
-            console.log(files);
-            $.ajax({                        //AJAX request
-                url: "multipleFileDownload.php",           // Get request
-                data: {downloadPath: pathAfterRoot ,fileNames:files},
-                success: function (response) {
-                    $("#loadingIcon").addClass('d-none');
-                    $("#filePrintUnderThisTag").removeClass('d-none');
-                    }
-            }).then(function() {  // reload 
-                let url = 'index.php?pathAfterRootFromMultiDownload='+pathAfterRoot;
-                window.location.assign(url); 
-                });
-        }
-    }),
+    
 
     $( ".deleteFile" ).hover(function() { // function Execute if hover over on delete icon on file card
         $(this).addClass("bg-danger");
