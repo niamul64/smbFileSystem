@@ -330,28 +330,28 @@ function deletefile(path,file){ // 'on click' applied on index.php by passing th
 }
 // delete file end
 
-// sorting option for directories sort
-$('#select1').on('change', function() { // folder sort 
-    let sortValue= this.value;
-    let currentPath= $("#currentPath").text();
-    let pathAfterRoot=currentPath.substring(5,);
+// // sorting option for directories sort
+// $('#select1').on('change', function() { // folder sort 
+//     let sortValue= this.value;
+//     let currentPath= $("#currentPath").text();
+//     let pathAfterRoot=currentPath.substring(5,);
 
-    if (sortValue==2){
-        $.ajax({
-            type: "POST",
-            url: "folderSort.php",
-            data: {path:pathAfterRoot},
-            success: function (response) {
-                // console.log(response);
-                $("#dirPrintUnderThisTag").html(response);      
-            },
-        });
-    }else{
-        let url = 'index.php?reloadPath='+pathAfterRoot;
-        window.location.assign(url);
-    }
-});
-// sorting option for directories sort end
+//     if (sortValue==2){
+//         $.ajax({
+//             type: "POST",
+//             url: "folderSort.php",
+//             data: {path:pathAfterRoot},
+//             success: function (response) {
+//                 // console.log(response);
+//                 $("#dirPrintUnderThisTag").html(response);      
+//             },
+//         });
+//     }else{
+//         let url = 'index.php?reloadPath='+pathAfterRoot;
+//         window.location.assign(url);
+//     }
+// });
+// // sorting option for directories sort end
 
 // // sorting option for files sort
 // $('#select2').on('change', function() { // file sort 

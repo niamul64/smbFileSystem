@@ -455,12 +455,11 @@ $files= grabFileAndDirectories($currentPath); // calling a function to scanning 
 printListOfDirectoriesAndFiles($files); // show all directories and files on html page
 extraGapToMakeSepareTheFooter();
 printFooter();
-
 // Main Function end
 ?>
 
-<script src="jq.js"></script>
-<script src="cssJsFiles/sorting.js"></script>
 
+<script src="cssJsFiles/sorting.js"></script>
+<script src="javaS.js"></script>
 </body>
 </html>
