@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     if (isset($_FILES['fileToUpload']) && $_FILES["fileToUpload"]["size"] >0 ){ // if a image selected
         if (file_exists($currentPath.'/'.$_FILES["fileToUpload"]["name"])){
-            unlink($currentPath.'/'.$_FILES["fileToUpload"]["name"]);
+            // unlink($currentPath.'/'.$_FILES["fileToUpload"]["name"]);
         }
             $tmp=$_FILES["fileToUpload"]["tmp_name"];
             move_uploaded_file($tmp,$currentPath.'/'.$_FILES["fileToUpload"]["name"]);
