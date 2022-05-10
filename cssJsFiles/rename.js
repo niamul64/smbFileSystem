@@ -1,4 +1,4 @@
-$( "#renameFile" ).click(function() { // onclick the rename file icon this function will Execute
+$( ".renameFile" ).click(function() { // onclick the rename file icon this function will Execute
     let currentDir = $(this).data('currentDir');
     let oldFileName = $(this).data('oldfilename');
     (async () => { // will take user input for new name file name
