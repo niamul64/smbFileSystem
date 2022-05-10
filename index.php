@@ -280,11 +280,13 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
             foreach ($listOfFilesAndDirectories as $eachFile){
 
             if (is_dir($currentPath.'/'.$eachFile)){
-            $fileCountIndex += 1;
+                $timeDateforDir = date (filemtime($currentPath.'/'.$eachFile));
+
+                $fileCountIndex += 1;
             ?> 
 
                     <!-- each row -->
-                        <div class="border-bottom border-1 mb-2 row">
+                        <div class="eachDir border-bottom border-1 mb-2 row" data-filenameofdir='<?php echo $eachFile; ?>' data-timedatefordir='<?php echo $timeDateforDir; ?>'>
                             <div class="col-8"> <a class="folderId text-dark" href="index.php?go=<?php echo $nextDir.'/'.$eachFile; ?> " ><?php echo "$fileCountIndex. "; echo $eachFile; ?> </a> </div>
                             <div class="col-4"> <a class="folderDelete bg-info text-dark" onclick="deleteDir('<?php echo $nextDir; ?>','<?php echo $eachFile; ?>' )">Delete</a> </div>
                         </div>
@@ -322,9 +324,9 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                             </div>
 
                             <select id="select2" class="col-lg-5 mb-1 mt-1" >
-                                <option value="1">Sort By Alphabetical Order</option>
-                                <option value="2">Sort By Modified Time</option>
-                                <option value="3">Sort By File Size</option>
+                                <option value="1">A>Z</option>
+                                <option value="3">Sort By last Modified Time</option>
+                                <option value="5">Sort By File Size ></option>
                             </select>
                         </div>
                     </div>
@@ -356,7 +358,7 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                             $fileSize = filesize($currentPath.'/'.$eachFile); // each file size
                             $fileSizeInKB = $fileSize;
                             $fileSize = $fileSize/1000000; // each file size in mb
-                            $timeDate = date (filemtime(rootDir.$nextDir.'/'.$eachFile));
+                            $timeDate = date (filemtime($currentPath.'/'.$eachFile));
                         ?> 
                         <!-- each file start -->
                             <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" data-filename='<?php echo $eachFile; ?>' data-filesize='<?php echo $fileSizeInKB; ?>' data-timedate='<?php echo $timeDate; ?>'> 
