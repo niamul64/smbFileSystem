@@ -407,8 +407,8 @@ function extraGapToMakeSepareTheFooter(){
 function printFooter(){
 ?>
     <!-- footer start -->
-    <footer class="pt-5 text-muted text-center text-small fixed-bottom">
-        <p class="mb-1">&copy; 2005–2022 Brotecs Technologies Limited</p>
+    <footer class="pt-1 text-muted text-center text-small fixed-bottom bg-white">
+        <p class="mb-1 mt-1">&copy; 2005–2022 Brotecs Technologies Limited</p>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Privacy</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
