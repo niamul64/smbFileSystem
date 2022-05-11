@@ -31,7 +31,7 @@
 <?php
 // all include files
 
-include 'rootDir.php';
+include 'allPhpFiles/rootDir.php';
 ?>
 
 <?php
