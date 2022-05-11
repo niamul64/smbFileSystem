@@ -31,42 +31,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                 }
             })()
     }),
-
-
-    $( "#deleteAllSelectedFiles" ).click(function() { // function Execute if clicked on delete button at button group
-        var numOfISelectedItems = $('.selected').length;
-        if (numOfISelectedItems) // looping through all the file cards
-        {
-            Swal.fire({
-                title: `Are You sure?`,
-                text: "Will Delete all the selected files.",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-              }).then((result) => {
-                if (result.isConfirmed) {       // if connfirmed
-                    let currentPath= $("#currentPath").text(); // current directory path
-                    let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
-                    $('.selected').each((index, element) => {
-                        let file=$(element).data('filename');
-
-                        $.ajax({                        //AJAX request
-                            url: "index.php",           // Get request
-                            data: {deletePath: pathAfterRoot ,fileName:file},
-                            success: function (response) {
-                                    $(element).remove();
-                                }
-                        });
-                    });
-                }
-              }) 
-        }
-    }),
-
     
-
     $( ".deleteFile" ).hover(function() { // function Execute if hover over on delete icon on file card
         $(this).addClass("bg-danger");
     
@@ -84,35 +49,6 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
         }
     );
 }); // hover on file cards end
-
-$( "#submitButton" ).hover(function() { // function Execute if hover over
-    $("#submitButton").removeClass("btn-secondary");
-    $("#submitButton").addClass("btn-success");
-    },
-    function(){                         // function Execute if not hovering over dir and file submit button
-        $("#submitButton").removeClass("btn-success");
-        $("#submitButton").addClass("btn-secondary");
-    }
-);
-$( "#submitButton2" ).hover(function() { // function Execute if hover over
-    $("#submitButton2").removeClass("btn-secondary");
-    $("#submitButton2").addClass("btn-success");
-    },
-    function(){
-        $("#submitButton2").removeClass("btn-success");
-        $("#submitButton2").addClass("btn-secondary"); // function Execute if not hovering over
-    }
-);
-
-$( "#gotoHome" ).hover(function() { // function Execute if hover over Goto home dir button
-    $(this).addClass("bg-warning");
-    $(this).removeClass("bg-info");
-    },
-    function(){                     // function Execute if not hovering over
-        $(this).removeClass("bg-warning"); 
-        $(this).addClass("bg-info");
-    }
-);
 
 // delete dir
 function deleteDir(path,folder){ // 'on click' applied on index.php by passing the path after root and folderName 

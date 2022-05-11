@@ -41,7 +41,6 @@ $("body").on("click", ".cardTitleSelect", function () {// select or unselect a f
     $(this).parent().parent().toggleClass('selected');
 });
 
-
 $( "#markAll" ).click(function() { // function Execute if clicked on mark all button
     $('.fileShowCard').each((index, element) => {
         if (!($(element).hasClass('selected'))) // looping through all the file cards
@@ -59,3 +58,33 @@ $( "#unmarkAll" ).click(function() { // function Execute if clicked on unmark al
         }
     });
 });
+
+$( "#submitButton" ).hover(function() { // function Execute if hover over
+    $("#submitButton").removeClass("btn-secondary");
+    $("#submitButton").addClass("btn-success");
+    },
+    function(){                         // function Execute if not hovering over dir and file submit button
+        $("#submitButton").removeClass("btn-success");
+        $("#submitButton").addClass("btn-secondary");
+    }
+);
+
+$( "#submitButton2" ).hover(function() { // function Execute if hover over
+    $("#submitButton2").removeClass("btn-secondary");
+    $("#submitButton2").addClass("btn-success");
+    },
+    function(){
+        $("#submitButton2").removeClass("btn-success");
+        $("#submitButton2").addClass("btn-secondary"); // function Execute if not hovering over
+    }
+);
+
+$( "#gotoHome" ).hover(function() { // function Execute if hover over Goto home dir button
+    $(this).addClass("bg-warning");
+    $(this).removeClass("bg-info");
+    },
+    function(){                     // function Execute if not hovering over
+        $(this).removeClass("bg-warning"); 
+        $(this).addClass("bg-info");
+    }
+);
