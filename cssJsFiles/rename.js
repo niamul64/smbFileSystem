@@ -1,5 +1,5 @@
 $( ".renameFile" ).click(function() { // onclick the rename file icon this function will Execute
-    let currentDir = $(this).data('currentDir');
+    let currentDir = $(this).data('currentdir');
     let oldFileName = $(this).data('oldfilename');
     (async () => { // will take user input for new name file name
         const { value: text } = await Swal.fire({
@@ -10,6 +10,7 @@ $( ".renameFile" ).click(function() { // onclick the rename file icon this funct
           showCancelButton: true
         })
         if (text) { // grab the user input in 'text'
+            console.log(currentDir);
             $.ajax({                        //AJAX request
                 url: "allPhpFiles/fileRename.php",           // Get request
                 data: {path: currentDir, oldName: oldFileName, newName: text},
