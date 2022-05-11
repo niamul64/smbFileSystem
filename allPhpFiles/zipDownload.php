@@ -21,7 +21,6 @@ if (isset($_GET ['pathAfterRootFromMultiDownload'])){
         //unlink($zipFileUrl);
         header('Pragma: no-cache');
         exit;
-
     }
 }
 // download zip file foe multifile download (temporary) End.
