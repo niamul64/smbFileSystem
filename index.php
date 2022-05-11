@@ -441,10 +441,16 @@ printFooter();
 // Main Function end
 ?>
 
-
+<!-- all js script -->
 <script src="cssJsFiles/sorting.js"></script>
 <script src="cssJsFiles/upDown.js"></script>
-<script src="javaSc.js"></script>
 <script src="cssJsFiles/rename.js"></script>
+<script src="cssJsFiles/creating.js"></script>
+<script src="cssJsFiles/delete.js"></script>
+<script src="cssJsFiles/search.js"></script>
+<script src="cssJsFiles/style.js"></script>
+<script src="javaSc.js"></script>
+<!-- all js script -->
+
 </body>
 </html>
