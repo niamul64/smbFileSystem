@@ -73,7 +73,7 @@ $( "body" ).hover(function() { // hover on file cards (here we can allso use id 
                     let pathAfterRoot=currentPath.substring(5,); // path after 'Root//'
                     $.ajax({                        //AJAX request
                         type: "POST",
-                        url: "searchFile.php",           // Post request sending to this file
+                        url: "allPhpFiles/searchFile.php",           // Post request sending to this file
                         data: {path: pathAfterRoot, fileName:fileName},
                             success: function (response) {
                                 // $("#loadingIcon").addClass('d-none');
@@ -330,7 +330,7 @@ $("#submit_form").on("submit", function(e){ // submit for folder/file creating
     var formData = new FormData(this); // grab the form value
     $.ajax({
         type: "POST",                   // send post request to make file or dir
-        url: "fileOrdirectoryCreate.php",
+        url: "allPhpFiles/fileOrdirectoryCreate.php",
         data: formData,
         contentType: false,
         processData: false,
