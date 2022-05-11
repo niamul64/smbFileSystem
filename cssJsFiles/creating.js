@@ -1,4 +1,3 @@
-
 // $("#submit_form").on("submit", function(e){ // submit for folder/file creating 
 //     e.preventDefault(); // prevent form submit to php file
 
