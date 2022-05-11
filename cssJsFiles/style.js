@@ -88,3 +88,19 @@ $( "#gotoHome" ).hover(function() { // function Execute if hover over Goto home 
         $(this).addClass("bg-info");
     }
 );
+    
+$( ".deleteFile" ).hover(function() { // function Execute if hover over on delete icon on file card
+    $(this).addClass("bg-danger");
+    },
+    function(){
+        $(this).removeClass("bg-danger"); // function Execute if not hovering over
+    }
+);
+
+$( ".downloadFile" ).hover(function() { // function Execute if hover over on download icon on file
+    $(this).addClass("bg-info");
+    },
+    function(){
+        $(this).removeClass("bg-info"); // function Execute if not hovering over
+    }
+);

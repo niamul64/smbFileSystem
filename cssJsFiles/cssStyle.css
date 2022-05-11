@@ -21,7 +21,16 @@ a{
 .verySmallTextSz{
     font-size: 12px;
 }
+.normalTextSz{
+    font-size: 14px;
+}
 
 .fontBold{
     font-weight: bold;
+}
+
+.cardTextoverflow{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

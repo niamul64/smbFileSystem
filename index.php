@@ -32,6 +32,7 @@
 // all include files
 
 include 'allPhpFiles/rootDir.php';
+include 'allPhpFiles/fileIconShow.php';
 ?>
 
 <?php
@@ -325,8 +326,9 @@ function printListOfDirectoriesAndFiles($listOfFilesAndDirectories){
                             <div id='fileShow'  class="fileShowCard me-2 ms-2 m-1 float-start card col-12 col-xl-3 col-lg-4 col-md-5 col-sm-10" data-filename='<?php echo $eachFile; ?>' data-filesize='<?php echo $fileSizeInKB; ?>' data-timedate='<?php echo $timeDate; ?>'> 
                             <!-- <div class="card-body">     -->
                             <div class="p-1">
-                                    <p class="fontBold cardTitleSelect"><?php echo $eachFile; ?></p>
                                     
+                                    <p class="fontBold cardTitleSelect cardTextoverflow normalTextSz" title='<?php echo $eachFile; ?>' ><?php echo $eachFile; ?></p>
+                                     
                                     <p class="verySmallTextSz card-subtitle text-muted cardTitleSelect"><?php  echo number_format($fileSize,2,'.','').'MB';?></p>
                                     
                                     <p class="verySmallTextSz cardTitleSelect">
