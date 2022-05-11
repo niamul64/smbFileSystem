@@ -6,7 +6,7 @@ $( ".renameFile" ).click(function() { // onclick the rename file icon this funct
           title: `Rename: ${oldFileName}`,
           input: 'text',
           inputLabel: 'Enter new name for the file, with extention',
-          inputPlaceholder: 'Enter your email address',
+          inputPlaceholder: 'Example: file.txt',
           showCancelButton: true
         })
         if (text) { // grab the user input in 'text'

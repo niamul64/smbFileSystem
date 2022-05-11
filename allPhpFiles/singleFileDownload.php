@@ -23,30 +23,3 @@ include 'rootDir.php';
     }
 
 ?>
-
-<?php
-        // header('Pragma: no-cache');
-        // header ("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-        // header('Content-Type: application/octet-stream');
-        // header("Content-Type: " . mime_content_type($file_url));
-        // header("Content-Type: application/force-download");
-        // header("Content-Transfer-Encoding: Binary"); 
-        // header("Content-length: ".filesize($file_url));
-        // header("Content-disposition: attachment; filename=\"" . basename($folderNameThatWeWantToDownload) . "\""); 
-        // header("Content-disposition: attachment; filename=\"" . basename($folderNameThatWeWantToDownload) . "\""); 
-        // header("Content-disposition: attachment; filename=".$folderNameThatWeWantToDownload); 
-        // flush();
-        // readfile($file_url); 
-
-
-        // header('Content-Description: File Transfer');
-        // header('Content-Type: application/octet-stream');
-        // header("Content-disposition: attachment; filename=\"" . basename($folderNameThatWeWantToDownload) . "\""); 
-        // header('Expires: 0');
-        // header('Cache-Control: must-revalidate');
-        // header('Pragma: public');
-        // header('Content-Length: ' . filesize($file_url));
-        // flush(); // Flush system output buffer
-        // readfile($file_url);
-        // die();
-?>
