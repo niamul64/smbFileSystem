@@ -258,7 +258,7 @@ function keepBothOrReplaceFile(formData, reloadUrl){
         if (result.isConfirmed) { // keep both option
                 $.ajax({
                 type: "POST",
-                url: "indexFileUpKeepBoth.php",
+                url: "allPhpFiles/indexFileUpKeepBoth.php",
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -275,7 +275,7 @@ function keepBothOrReplaceFile(formData, reloadUrl){
         } else if (result.isDenied) { // replace option
             $.ajax({
                 type: "POST",
-                url: "index_up_replace.php",
+                url: "allPhpFiles/index_up_replace.php",
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -299,7 +299,7 @@ $("#submit_form2").on("submit", function(e){ // submit button2: for file upload
     var formData = new FormData(this);
     $.ajax({
         type: "POST",
-        url: "index_file_up_on_condition.php",
+        url: "allPhpFiles/index_file_up_on_condition.php",
         data: formData,
         contentType: false,
         processData: false,
@@ -361,6 +361,7 @@ $("#submit_form").on("submit", function(e){ // submit for folder/file creating
               }).then(function(response) {
                 // let url = 'index.php?reloadPath='+reloadUrl;
                 // window.location.assign(url);
+                window.location.reload();
             })
         }
         else if(newCreatingFile){                   // if file already exists
@@ -372,6 +373,7 @@ $("#submit_form").on("submit", function(e){ // submit for folder/file creating
               }).then(function(response) {
                 // let url = 'index.php?reloadPath='+reloadUrl;
                 // window.location.assign(url);
+                window.location.reload();
             })
         }
         else{                                       // if file or dir created successfully then just reload
