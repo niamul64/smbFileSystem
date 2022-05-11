@@ -37,30 +37,6 @@ $("body").on("click", ".cardTitleSelect", function () {// select or unselect a f
 
 $( "body" ).hover(function() { // hover on file cards (here we can allso use id #fileCardJsTriger)
 
-    // $( ".cardTitleSelect" ).click(function() { // select or unselect a file card 
-    //         if ($(this).parent().parent().hasClass('selected')){
-    //             $(this).parent().parent().removeClass("selected");// unselect a file card 
-    //         }
-    //         else{
-    //             $(this).parent().parent().addClass("selected"); // select a file card 
-    //         }
-    //     },
-    // ),
-
-    // $( ".fileShowCard" ).click(function() { // select or unselect a file card 
-    //         if ($(this).hasClass('selected')){
-    //             $(this).removeClass("selected");
-    //             selectCount -=1;
-    //             console.log(selectCount)
-    //         }
-    //         else{
-    //             selectCount +=1;
-    //             console.log(selectCount)
-    //             $(this).addClass("selected");
-    //         }
-    //     },
-    // ),
-
     $( "#markAll" ).click(function() { // function Execute if clicked on mark all button
         $('.fileShowCard').each((index, element) => {
             if (!($(element).hasClass('selected'))) // looping through all the file cards

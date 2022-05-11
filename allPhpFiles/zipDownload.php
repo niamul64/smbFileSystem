@@ -12,13 +12,15 @@ if (isset($_GET ['pathAfterRootFromMultiDownload'])){
     $currentPath = rootDir.$nextDir; // making the full path
     $zipFileUrl=zipForMultiDownload.'/'."zipFile.zip";
     if (file_exists($zipFileUrl)){// checking: if file exists
+        ob_end_clean();
         header('Content-Type: application/octet-stream');
         header("Content-Transfer-Encoding: Binary"); 
-        header("Content-disposition: attachment; filename=\"" . basename($zipFileUrl) . "\""); 
+        header("Content-disposition: attachment; filename=\"" . basename('zipFile.zip') . "\""); 
         readfile($zipFileUrl);
         shell_exec('rm -rf ' . $zipFileUrl); 
         //unlink($zipFileUrl);
         header('Pragma: no-cache');
+        exit;
 
     }
 }

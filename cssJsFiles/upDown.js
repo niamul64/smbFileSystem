@@ -23,3 +23,12 @@ $( "#downloadAllSelectedFlle" ).click(function() { // function Execute if clicke
             });
     }
 });
+
+
+$( ".downloadFile" ).click(function() { // function Execute if clicked on delete button at button group
+    let dirAfterRoot = $(this).data('currentdir').trim();
+    let fileNameToDownload = $(this).data('filename').trim();
+    
+    let url = 'allPhpFiles/singleFileDownload.php?downloadPath='+dirAfterRoot+'&downloadFileName='+fileNameToDownload; // downlad zi
+    window.location=url; 
+});
